@@ -37,22 +37,26 @@
                </h1>
                <p>Nous sommes navrés que vous ayez rencontré un problème dans notre institution.<br><br>Prenez quelques minutes et racontez-nous ce qui s'est passé.</p>
                <div class="formulaire">
-                  <div id="name">                  
+                  <div id="name">          </div>  
+                  <label for="description">Le nom de l'animal</label>       
                      <input type="text" id="nom" name="nom" placeholder="Le nom de votre animal" required>
-                  </div>
-                  <div class="espece">
+
+                  <p id="msgerrage">         </p> 
+                  <label for="description">L'age de l'animal</label>   
+                  <input type="text" id="age" name="age" placeholder="L'age de votre animal" required>
+                  <p id="msgerrespece">    </p>
                      <label for="espece">
                      Quelle est l'espece de votre animal: 
                   </label>
-                     <select onchange="especeFunction(this.value)">
-                       <option >Choississez une option</option>
+                     <select id="espece" onchange="especeFunction(this.value)">
+                       <option value="option" > Choississez une option</option>
                        <option value="chat" >Chat</option>
                        <option value="chien">Chien</option>
                        <option value="serpent">Serpent</option>
                        <option value="poisson">Poisson</option>
                        <option value="oiseau">Oiseau</option>
                      </select>
-                   </div>
+                   
 
                   <label for="race">Quelle est la race de votre animal</label>
                   <select id="chien">
@@ -128,10 +132,44 @@
                      <option value="Financiere">Financière</option>
                      <option value="other">Autre</option>
                   </select>
-                  <label for="Description">Qu'est ce qui s'est passé ?</label>
-                  <textarea id="Description" name="Description" placeholder="Dites nous en details" required></textarea>
+                    
+
+
+
+                
+                 <p id="msgerrdescription">    </p>
+
+                  <label for="description">Qu'est ce qui s'est passé ?</label>
+                  <textarea id="description" name="description" placeholder="Dites nous en details" required></textarea>
+                  
+                  
+
+
+                  <p id="msgerradresse">          </p>  
+                  <label for="adresse">L'adresse civique </label>       
+                  <input type="text" id="adresse" name="adresse" placeholder="L'adresse civique'" required>
+                  
+                  
+                  <p id="msgerrville">          </p> 
+                  <label for="ville">La ville </label>        
+                  <input type="text" id="ville" name="ville" placeholder="La ville" required>
+
+                  
+                  <p id="msgerrcodepostal">          </p>  
+                  <label for="codepostal">Le code postal</label>       
+                  <input type="text" id="codepostal" name="codepostal" placeholder="Le codepostal" required>
+
+
+
+                  <p id="msgerremail">    </p>
                   <label for="email">Votre addresse couriel</label>
                   <input type="text" id="email" name="email" placeholder="example@company.com" required>
+
+
+
+
+
+
                   <input type="submit" id="submit" value="Soumettre">
                </div>
                <p id="bottom-text">Nous vous contacterons dans un délai de 2 à 3 jours ouvrables concernant votre plainte.</p>
