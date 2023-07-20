@@ -80,6 +80,19 @@ function especeFunction(valeur)
     } 
 }
 
+function verificationCodePostal(valeur) {
+    var erreur = document.getElementById("msgerrcodepostal");
+    const regex = /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/;
+  
+    console.log("Function called with value:", valeur);
+  
+    if (!regex.test(valeur)) {
+      erreur.innerHTML = "Le code postal n'est pas valide";
+    } else {
+      erreur.innerHTML = "";
+    }
+  }  
+
 
 function verifierage() {
     var age = document.getElementById("age").value;
@@ -204,21 +217,37 @@ function verifierville() {
         
     }
 }
-function verifiercode() {
+
+function checkEnterKey(event) {
+    if (event.keyCode === 13) {
+      const valeur = event.target.value;
+      verifiercode(valeur);
+    }
+  }  
+    
+
+function verifiercode(valeur) {
     var codepostal= document.getElementById("codepostal").value;
     var erreur= document.getElementById("msgerrcodepostal");
+    const regex = /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/;
+
     if(codepostal === "" || codepostal == null) {
         erreur.innerHTML="Veuillez remplir le champ";
         erreur.style.color="red";
+    }
+    if (!regex.test(valeur)) {
+        erreur.innerHTML = "Le code postal n'est pas valide";
     }
     else if(codepostal.includes(",")){
         erreur.innerHTML="Le code postal ne doit pas contenir une virgule";
         erreur.style.color="red";
     }
+    
     else {
         erreur.innerHTML = "";
         
-    }
+    }  
+    
 }
 
 
