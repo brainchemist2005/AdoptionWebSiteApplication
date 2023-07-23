@@ -11,7 +11,7 @@
    <body>
       <div class="top">
          <a id="Alogo" href="index.html">
-         <img id="logo" src="../Material/logo_tp1.png" alt="logo" >
+         <img id="logo" src="Images/Logo.PNG" alt="logo" >
          </a>
          <div class="navbar">
             <ul>
@@ -109,9 +109,9 @@
                      <option value="Discus">Discus</option>
                      <option value="Poisson-clown">Poisson-clown</option>
                      <option value="Poisson-chat">Poisson-chat</option>
-                   </select>
+                  </select>
 
-                   <select id="oiseau">
+                  <select id="oiseau">
                      <option value="Perroquet">Perroquet</option>
                      <option value="Canari">Canari</option>
                      <option value="Perruche ondulée">Perruche ondulée</option>
@@ -122,42 +122,26 @@
                      <option value="Poule">Poule</option>
                      <option value="Faucon">Faucon</option>
                      <option value="Corbeau">Corbeau</option>
-                   </select>                   
+                  </select>                   
 
-                  <label for="Type">Type de problème</label>
-                  <select id="Type" name="type">
-                     <option value="Staff">Personnel</option>
-                     <option value="Site">Site</option>
-                     <option value="Soin">Soins</option>
-                     <option value="Financiere">Financière</option>
-                     <option value="other">Autre</option>
-                  </select>
-                    
+                  
 
+               <p id="msgerrdescription"></p>
 
-
-                
-                 <p id="msgerrdescription">    </p>
-
-                  <label for="description">Qu'est ce qui s'est passé ?</label>
+                  <label for="description">Description de l'animal</label>
                   <textarea id="description" name="description" placeholder="Dites nous en details" required></textarea>
-                  
-                  
-
 
                   <p id="msgerradresse">          </p>  
                   <label for="adresse">L'adresse civique </label>       
                   <input type="text" id="adresse" name="adresse" placeholder="L'adresse civique'" required>
-                  
-                  
+
                   <p id="msgerrville">          </p> 
                   <label for="ville">La ville </label>        
                   <input type="text" id="ville" name="ville" placeholder="La ville" required>
 
-                  
                   <p id="msgerrcodepostal">          </p>  
                   <label for="codepostal">Le code postal</label>       
-                  <input type="text" id="codepostal" name="codepostal" placeholder="Le codepostal" required>
+                  <input type="text" id="codepostal" name="codepostal" placeholder="Le code postal" required  onkeydown="checkEnterKey(event)">
 
 
 
