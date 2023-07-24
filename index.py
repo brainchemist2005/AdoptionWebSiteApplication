@@ -1,4 +1,5 @@
-# Copyright 2023 <Votre nom et code permanent>
+
+#Copyright 2023<BOUZ90340206 Bouargan Zakariae, HATJ66620201 Hatim Jinane>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,15 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import Flask, request, redirect, url_for
+from flask import Flask
 from flask import render_template
+from flask import request, redirect, 
 from flask import g
 from .database import Database
 import random
 
-
-
-app = Flask(__name__, static_url_path="", static_folder="static")
+app = Flask(_name_, static_url_path="", static_folder="static")
 
 
 def get_db():
@@ -36,28 +36,44 @@ def close_connection(exception):
     if db is not None:
         db.disconnect()
 
-
 @app.route('/')
 def accueil():
         animaux=get_db().get_animaux()
         liste= random.choices(animaux, k=5)
-        return render_template('accueil.html',liste)  
+        return render_template('accueil.html',liste) 
 
-@app.route('/accueil')
+@app.route('/accueil', methods=['GET','POST'])
 def form():
-    # À remplacer par le contenu de votre choix.
-    return render_template('adoption.html')
+    if request.method== 'POST':
+        pass
+    else:
+        return render_template('adoption.html')
+    
+
+
+
+@app.route('/<id_animal>')
+def animal_page(id_animal):
+    animal = get_db().get_animal(id_animal)
+    if(animal==None):
+        return redirect(404)
+    if(animal!=None):
+        return render_template('resultat_recherche.html', animal=animal)
+
+
+
+
 
 
 
 @app.route("/soumettre", methods=["POST"])
 def soumettre():
     if len(request.form["nom"]) > 25:
-           return redirect('/erreur')
+        return redirect('/erreur')
 
 
     if len(request.form["description"]) > 500:
-         return redirect('/erreur')
+        return redirect('/erreur')
     
     if len(request.form["adresse"])> 75:
         return redirect('/erreur')
@@ -70,15 +86,16 @@ def soumettre():
     
     if len(request.form["email"])> 80:
         return redirect('/erreur')
-    
 
-        
-   
+@app.errorhandler(404)
+def page_not_found(e):
+    #snip
+    return render_template('404.html'), 404
+
+if _name_ == '_main_':
+        app.run(debug=True)
 
 
-@app.route('/erreur')
-def erreur():
-    return render_template('erreur.html')
 
 
 
