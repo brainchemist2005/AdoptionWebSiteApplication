@@ -1,4 +1,4 @@
-# Copyright 2023 <Votre nom et code permanent>
+# Copyright 2023 <BOUZ90340206 Bouargan Zakariae Jinane>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from .database import Database
+from database import Database
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -25,6 +25,10 @@ def get_db():
     if db is None:
         g._database = Database()
     return g._database
+
+if __name__ == '__main__':
+        app.run(debug=True)
+
 
 
 @app.teardown_appcontext
@@ -37,4 +41,4 @@ def close_connection(exception):
 @app.route('/')
 def form():
     # À remplacer par le contenu de votre choix.
-    return render_template('form.html')
+    return render_template('adoption.html')
