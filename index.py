@@ -12,10 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import Flask
+from flask import Flask, request, redirect, url_for
 from flask import render_template
 from flask import g
 from .database import Database
+import random
+
+
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -35,6 +38,49 @@ def close_connection(exception):
 
 
 @app.route('/')
+def accueil():
+        animaux=get_db().get_animaux()
+        liste= random.choices(animaux, k=5)
+        return render_template('accueil.html',liste)  
+
+@app.route('/accueil')
 def form():
     # À remplacer par le contenu de votre choix.
-    return render_template('form.html')
+    return render_template('adoption.html')
+
+
+
+@app.route("/soumettre", methods=["POST"])
+def soumettre():
+    if len(request.form["nom"]) > 25:
+           return redirect('/erreur')
+
+
+    if len(request.form["description"]) > 500:
+         return redirect('/erreur')
+    
+    if len(request.form["adresse"])> 75:
+        return redirect('/erreur')
+    
+    if len(request.form["ville"])> 75:
+        return redirect('/erreur')
+
+    if len(request.form["codepostal"])> 7:
+        return redirect('/erreur')
+    
+    if len(request.form["email"])> 80:
+        return redirect('/erreur')
+    
+
+        
+   
+
+
+@app.route('/erreur')
+def erreur():
+    return render_template('erreur.html')
+
+
+
+
+

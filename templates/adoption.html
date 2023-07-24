@@ -41,64 +41,47 @@
                   <label for="description">Le nom de l'animal</label>       
                      <input type="text" id="nom" name="nom" placeholder="Le nom de votre animal" required>
 
-                  <p id="msgerrage">         </p> 
+                  <p id="msgerrage">      erreur   </p> 
                   <label for="description">L'age de l'animal</label>   
                   <input type="text" id="age" name="age" placeholder="L'age de votre animal" required>
                   <p id="msgerrespece">    </p>
                      <label for="espece">
                      Quelle est l'espece de votre animal: 
                   </label>
-                     <select id="espece" onchange="especeFunction(this.value)">
+
+
+
+
+                  
+
+                     
+                  <select id="espece" onchange="especeFunction(this.value)">
                        <option value="option" > Choississez une option</option>
-                       <option value="chat" >Chat</option>
+                       <option value="mouton" >Mouton</option>
                        <option value="chien">Chien</option>
                        <option value="serpent">Serpent</option>
-                       <option value="poisson">Poisson</option>
-                       <option value="oiseau">Oiseau</option>
+                       <option value="escargot">Escargot</option>
+                       <option value="kangourou">Kangourou</option>
                      </select>
                    
 
                   <label for="race">Quelle est la race de votre animal</label>
-                  <select id="chien">
-                     <option value="Labrador Retriever">Labrador Retriever</option>
-                     <option value="Berger allemand">Berger allemand</option>
-                     <option value="Golden Retriever">Golden Retriever</option>
-                     <option value="Bulldog français">Bulldog français</option>
-                     <option value="Caniche">Caniche</option>
-                     <option value="Rottweiler">Rottweiler</option>
-                     <option value="Chihuahua">Chihuahua</option>
-                     <option value="Boxer">Boxer</option>
-                     <option value="Berger australien">Berger australien</option>
-                     <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+                  <select id="mouton">
+                     <option value="Dorper">Dorper</option>
+                    
                   </select>
 
-                  <select id="chat">
-                     <option value="Persan">Persan</option>
-                     <option value="Maine Coon">Maine Coon</option>
-                     <option value="Siamois">Siamois</option>
-                     <option value="Bengal">Bengal</option>
-                     <option value="Scottish Fold">Scottish Fold</option>
-                     <option value="Ragdoll">Ragdoll</option>
-                     <option value="British Shorthair">British Shorthair</option>
-                     <option value="Abyssin">Abyssin</option>
-                     <option value="Birman">Birman</option>
-                     <option value="Norvégien">Norvégien</option>
+                  <select id="chien">
+                     <option value="Chihuahua">Chihuahua</option>
+                     <option value="Dalmatien">Dalmatien</option>
+                     <option value="Pug">Pug</option>
                   </select>
 
                   <select id="serpent">
-                     <option value="Boa constrictor">Boa constrictor</option>
-                     <option value="Python royal">Python royal</option>
-                     <option value="Cobra">Cobra</option>
-                     <option value="Vipère">Vipère</option>
-                     <option value="Anaconda">Anaconda</option>
-                     <option value="Serpent à sonnette">Serpent à sonnette</option>
-                     <option value="Mamba noir">Mamba noir</option>
-                     <option value="Serpent des blés">Serpent des blés</option>
-                     <option value="Serpent corail">Serpent corail</option>
-                     <option value="Serpent ratier">Serpent ratier</option>
-                   </select>
+                     <option value="Boa">Boa</option>
+                  </select>
 
-                   <select id="poisson">
+                  <select id="poisson">
                      <option value="Poisson rouge">Poisson rouge</option>
                      <option value="Tétra néon">Tétra néon</option>
                      <option value="Guppy">Guppy</option>
@@ -122,9 +105,16 @@
                      <option value="Poule">Poule</option>
                      <option value="Faucon">Faucon</option>
                      <option value="Corbeau">Corbeau</option>
-                  </select>                   
+                  </select>                  
 
-                  
+
+                  <select id="escargot">
+                     <option value="Inconnu">Inconnu</option>
+                  </select>
+
+                  <select id="kangourou">
+                     <option value="Inconnu">Inconnu</option>
+                  </select>                   
 
                <p id="msgerrdescription"></p>
 
