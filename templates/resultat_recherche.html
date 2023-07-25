@@ -7,14 +7,18 @@
       <title>Plainte</title>
       <link rel="stylesheet" type="text/css" href="adoption.css">
       <script src="adoption.js"></script>
+      <title>Details d'animal</title>
    </head>
-   <body>   
-   
-    
-    <p>{{animal}}</p>
-    
-
-
-
+   <body>
+      <h1>Details d'animal</h1>
+      <p>Nom: {{ animal.nom }}</p>
+      <p>Espece: {{ animal.espece }}</p>
+      <p>Race {{ animal.race }}</p>
+      <p>Age: {{ animal.age }}</p>
+      <p>Description: {{ animal.description }}</p>
+      <p>Email: {{ animal.courriel }}</p>
+      <p>Adresse: {{ animal.adresse }}</p>
+      <p>VIlle: {{ animal.ville }}</p>
+      <p>Code Postal: {{ animal.cp }}</p>
    </body>
 </html>

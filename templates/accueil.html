@@ -6,19 +6,18 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Plainte</title>
       <link rel="stylesheet" type="text/css" href="adoption.css">
-      <script src="adoption.js"></script>
+      <script src=""></script>
    </head>
    <body>   
    
-    {% for lanimal in liste %}
-    <li>{{lanimal.nom}}</li>
-    {% endfor %}
+      <h1>Liste d'animaux</h1>
+      <ul>
+         {% for animal in animaux %}
+         <li><a href="/animal/{{animal.id}}">{{animal.nom}}</a></li>
+         {% endfor %}
+      </ul>
 
-    <label for="animal">Entrez dans la barre d'adresse l'id de l'animal que vous voulez adopter </label>        
-
-    
-    
-
+      <label for="animal">Entrez dans la barre d'adresse l'id de l'animal que vous voulez adopter </label>        
 
    </body>
 </html>
