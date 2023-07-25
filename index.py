@@ -19,7 +19,7 @@ def close_connection(exception):
 def form():
     return render_template('adoption.html')
 
-@app.route('/<id_animal>')
+@app.route('/animal/<id_animal>')
 def animal_page(id_animal):
     animal = get_db().get_animal(id_animal)
     if animal is None:
@@ -36,12 +36,9 @@ def soumettre():
     len(request.form["email"]) > 80:
         return redirect('/erreur')
 
-@app.route("/erreur")
-def erreur():
-    return render_template('erreur.html')  # assuming you have an 'erreur.html' template
 
 @app.errorhandler(404)
-def page_not_found(e):
+def not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
