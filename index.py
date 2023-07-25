@@ -16,12 +16,19 @@ def close_connection(exception):
     if db is not None:
         db.disconnect()
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET'])
 def form():
-    return render_template('adoption.html')
+    animaux = get_db().get_animaux()
+    if len(animaux) >= 5:
+        animauxHasard = random.sample(animaux, 5)
+    else:
+        animauxHasard = animaux
+
+    return render_template('accueil.html', animaux=animauxHasard)
 
 
-@app.route('/animal/<id_animal>')
+@app.route('/animal/<int:id_animal>', methods=['GET'])
+
 def animal_page(id_animal):
     animal = get_db().get_animal(id_animal)
     if animal:return render_template('resultat_recherche.html', animal=animal)
@@ -33,8 +40,17 @@ def animal_page(id_animal):
 
 
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html'), 404
+
+@app.route("/adoption")
+def adoption():
+    return render_template('adoption.html')
+
 @app.route("/soumettre", methods=["POST"])
 def soumettre():
+
     
     if len(request.form["nom"]) < 3 or len(request.form["nom"])>20:
       return redirect("/erreur")
@@ -123,4 +139,16 @@ def page_not_found(e):
 if __name__ == '__main__':
     app.run(debug=True)
 
+
+
+    
+    
+    get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
+                        request.form["age"], request.form["description"], request.form["email"],
+                        request.form["adresse"], request.form["ville"], request.form["codepostal"])
+    return redirect('/succes')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 

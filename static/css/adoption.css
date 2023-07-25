@@ -37,6 +37,11 @@ body {
 	margin-left: 20px;
 }
 
+#msgerrage
+{
+	display:none;
+}
+
 #logo {
 	width: 100%;
 	border-radius: 10px;
