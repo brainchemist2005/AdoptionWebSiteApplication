@@ -4,13 +4,14 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Plainte</title>
+      <title></title>
       <link rel="stylesheet" type="text/css" href="adoption.css">
       <script src="adoption.js"></script>
       <title>Details d'animal</title>
    </head>
    <body>
       <h1>Details d'animal</h1>
+      <img src="{{ url_for('static', filename='Images/' + animal.nom + '.jpeg') }}" alt="{{ animal.nom }}">
       <p>Nom: {{ animal.nom }}</p>
       <p>Espece: {{ animal.espece }}</p>
       <p>Race {{ animal.race }}</p>
@@ -20,8 +21,6 @@
       <p>Adresse: {{ animal.adresse }}</p>
       <p>Ville: {{ animal.ville }}</p>
       <p>Code Postal: {{ animal.cp }}</p>
-       
       <a href="/page_animal"> Cliquez ici pour aller a la page de l'animal</a>
-     
    </body>
 </html>
