@@ -26,9 +26,19 @@ def form():
 
     return render_template('accueil.html', animaux=animauxHasard)
 
+@app.route('/about')
+def about_us():
+    return render_template('SavoirPlus.html')
+
+@app.route("/erreur")
+def erreur():
+    return render_template('erreur.html') 
+
+@app.route("/succes")
+def succes():
+    return render_template('succes.html') 
 
 @app.route('/animal/<id_animal>', methods=['GET'])
-
 def animal_page(id_animal):
     animal = get_db().get_animal(id_animal)
     if animal:return render_template('resultat_recherche.html', animal=animal)
@@ -36,7 +46,7 @@ def animal_page(id_animal):
 
 @app.route('/page_animal', methods=['GET'])
 def contacter_proprietaire():
-    return render_template('page_animal')
+    return render_template('page_animal.html')
     
 
 @app.errorhandler(404)
@@ -49,8 +59,6 @@ def adoption():
 
 @app.route('/soumettre', methods=["POST"])
 def soumettre():
-
-    
     if len(request.form["nom"]) < 3 or len(request.form["nom"])>20:
       return redirect("/erreur")
     
@@ -72,8 +80,6 @@ def soumettre():
     
     elif len(request.form["email"]) > 80:
        return redirect("/erreur")
-    
-
 
     elif not request.form["nom"].strip() or not request.form["nom"]:
             return redirect("/erreur")
@@ -96,8 +102,6 @@ def soumettre():
     elif not request.form["age"].strip() or not request.form["age"]:
        return redirect("/erreur")
     
-    
-
     elif "," in request.form["nom"]:
       return redirect("/erreur")   
              
@@ -115,38 +119,21 @@ def soumettre():
             
     elif "," in request.form["email"]:
         return redirect("/erreur")
-          
+
     elif "," in request.form["age"]:
         return redirect("/erreur")
 
-    
-     
-@app.route("/erreur", methods=["GET"])
-def erreur():
-    return render_template('erreur.html') 
+    else :
+        get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
+                        request.form["age"], request.form["description"], request.form["email"],
+                        request.form["adresse"], request.form["ville"], request.form["codepostal"])    
+    return redirect("/succes")
 
 @app.route('/accueil')
 def accueil():
     
     liste=random.choices(get_db().get_animaux(), k=5)
     return render_template('accueil.html', liste=liste)
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-    
-    
-    get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
-                        request.form["age"], request.form["description"], request.form["email"],
-                        request.form["adresse"], request.form["ville"], request.form["codepostal"])
-    
-
 
 if __name__ == "__main__":
     app.run(debug=True)

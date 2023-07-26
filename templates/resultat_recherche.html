@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultat_recherche.css') }}">
       <script src="resultat_recherche.js"></script>
       <title>Details d'animal</title>
@@ -15,11 +14,12 @@
         <img id="Alogo1" src="{{ url_for('static', filename='Images/Logo.PNG') }}">
      
      <div class="navbar">
-        <ul>
-           <li><a href="{{ url_for('templates', filename='accueil.html') }}">Page d'acceuil</a></li>
-           <li><a href="{{ url_for('templates', filename='adoption.html') }}">Adoptez un animal</a></li>
-           <li><a href="{{ url_for('templates', filename='SavoirPlus.html') }}">A propos de nous</a></li>
-        </ul>
+      <ul>
+         
+         <li><a href="{{ url_for('adoption') }}">Adoptez un animal</a></li>
+         
+     </ul>
+     
      </div>
      <a href="#recherche">
      <button type="button" class="boutton">

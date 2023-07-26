@@ -37,7 +37,7 @@
                   Bienvenue dans notre centre d'adoption
                </h1>
                <p>Remplissez ce formulaire pour mettre votre animal de compagnie en adoption.</p>
-               <form action="{{ url_for('submit_adoption') }}" method="post">
+               <form action="{{ url_for('soumettre') }}" method="post">
                <div class="formulaire">
                   <div id="name"></div>  
                   <label for="description">Le nom de l'animal</label>       
@@ -47,24 +47,22 @@
                   <label for="description">L'age de l'animal</label>   
                   <input type="text" id="age" name="age" placeholder="L'age de votre animal" required>
                   <p id="msgerrespece">    </p>
-                     <label for="espece">
-                     Quelle est l'espece de votre animal: 
-                  </label>
-
-                  <select id="espece" onchange="especeFunction(this.value)">
+                  <select id="espece" name="espece" onchange="especeFunction(this.value)">
                      <option value="option" > Choississez une option</option>
                      <option value="mouton" >Mouton</option>
                      <option value="chien">Chien</option>
                      <option value="serpent">Serpent</option>
                      <option value="escargot">Escargot</option>
                      <option value="kangourou">Kangourou</option>
-                     </select>
+                  </select>
+                  
                   
 
                   <label for="race">Quelle est la race de votre animal</label>
-                  <select id="mouton">
+                  <select id="mouton" name="race">
                      <option value="Dorper">Dorper</option>
                   </select>
+
 
                   <select id="chien">
                      <option value="Chihuahua">Chihuahua</option>
