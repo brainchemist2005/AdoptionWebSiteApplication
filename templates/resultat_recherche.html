@@ -11,7 +11,9 @@
    <body>
     <div class="top">
          
+      <a href="{{ url_for('accueil') }}" >
         <img id="Alogo1" src="{{ url_for('static', filename='Images/Logo.PNG') }}">
+      </a>
      
      <div class="navbar">
       <ul>
@@ -34,14 +36,14 @@
       <img src="{{ url_for('static', filename='Images/' + animal.nom + '.jpeg') }}" alt="{{ animal.nom }}">
       <p>Nom: {{ animal.nom }}</p>
       <p>Espece: {{ animal.espece }}</p>
-      <p>Race {{ animal.race }}</p>
+      <p>Race: {{ animal.race }}</p>
       <p>Age: {{ animal.age }}</p>
       <p>Description: {{ animal.description }}</p>
       <p>Email: {{ animal.courriel }}</p>
       <p>Adresse: {{ animal.adresse }}</p>
       <p>Ville: {{ animal.ville }}</p>
       <p>Code Postal: {{ animal.cp }}</p>
-      <a href="/page_animal"> Cliquez ici pour aller a la page de l'animal</a>
+      <a href="/page_animal"> Etes-vous intersser ?</a>
     </div>
 </div>
    </body>

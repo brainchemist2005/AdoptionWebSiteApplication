@@ -47,7 +47,6 @@ def animal_page(id_animal):
 @app.route('/page_animal', methods=['GET'])
 def contacter_proprietaire():
     return render_template('page_animal.html')
-    
 
 @app.errorhandler(404)
 def not_found(e):
@@ -131,9 +130,13 @@ def soumettre():
 
 @app.route('/accueil')
 def accueil():
-    
-    liste=random.choices(get_db().get_animaux(), k=5)
-    return render_template('accueil.html', liste=liste)
+    animaux = get_db().get_animaux()
+    if len(animaux) >= 5:
+        animauxHasard = random.sample(animaux, 5)
+    else:
+        animauxHasard = animaux
+
+    return render_template('accueil.html', animaux=animauxHasard)
 
 if __name__ == "__main__":
     app.run(debug=True)

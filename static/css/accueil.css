@@ -1,0 +1,87 @@
+
+top {
+	display: flex;
+	background-color: #edfcff;
+	border: 0px;
+	margin-bottom: 0px;
+	justify-content: space-between;
+	height: 100px;
+}
+
+.boutton {
+	margin-top: 20px;
+	width: 60px;
+	height: 60px;
+	background-color: #edfcff;
+	border-width: 0;
+}
+
+.boutton img {
+	width: 50%;
+}
+
+#Alogo1 {
+	width: 25%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+#msgerrage
+{
+	display:none;
+}
+
+#escargot
+{
+	display: none;
+}
+
+#kangourou
+{
+	display: none;
+}
+
+#logo {
+	width: 100%;
+	border-radius: 10px;
+}
+
+.navbar {
+	margin-top: 20px;
+	margin-right: 150px;
+}
+
+#Hr {
+	height: 4px;
+	background-color: #b7d3db;
+	border: none;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.navbar ul li ::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #1f6ed4;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.5s;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+	font-family: 'Gotham', sans-serif;
+}
+
+.navbar ul li :hover:after {
+	width: 100%;
+}

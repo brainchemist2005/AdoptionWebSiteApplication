@@ -6,158 +6,181 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Plainte</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/adoption.css') }}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
       <script src="{{ url_for('static', filename='js/adoption.js') }}"></script>
-
    </head>
    <body>
-      <div class="top">
-         
-            <img id="Alogo1" src="{{ url_for('static', filename='Images/Logo.PNG') }}">
-         
-         <div class="navbar">
-            <ul>
-               <li><a href="index.html">Page d'acceuil</a></li>
-               <li><a href="Visites.html">Patients et visiteurs</a></li>
-               <li><a href="Recrutement.html">Stage et embauche</a></li>
-               <li><a href="SavoirPlus.html">A propos de nous</a></li>
-            </ul>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+         <div class="container-fluid">
+           <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}"> </a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Deposez votre annonce</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">A propos de nous</a>
+                </li>
+             </ul>
+             
+             <form class="d-flex" role="search">
+               <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">Recherche</button>
+             </form>
+           </div>
          </div>
-         <a href="#recherche">
-         <button type="button" class="boutton">
-         <img src="https://icons.veryicon.com/png/o/miscellaneous/general-icon-collection-linear-fillet/icon_search-9.png" alt="Search Icon">
-         </button>
-         </a>          
-      </div>
-      <div class="Main1">
-         <div class="main">
-            <div class="left">
+       </nav>
+
+       <div class="container-wrapper">
+        <div id="left">
+        </div>
+       <div class="container">
+
+        <div class="form-floating mb-3 col-6">
+            <input type="text" class="form-control" id="floatingInputInvalid1" placeholder="name@example.com" oninput="validateInput()">
+            <label for="floatingInputInvalid">Nom de l'animal</label>
+        </div>
+        <div class="mb-3 col-6">
+            <select class="form-select" id="age" aria-label="Default select example">
+                <option selected value="$">Quelle age a votre animal</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+            </select>
+        </div>
+        <div class="form-floating mb-3 col-6">
+            <input type="text" class="form-control" id="floatingInputInvalid1" placeholder="name@example.com" onchange="validateInput()">
+            <label for="floatingInputInvalid">La ville</label>
+        </div>
+
+        <div class="form-floating mb-3 col-6">
+            <input type="text" class="form-control" id="floatingInputInvalid2" placeholder="name@example.com" onchange="">
+            <label for="floatingInputInvalid">L'addresse civique</label>
+        </div>
+
+        <div class="form-floating mb-3 col-6">
+            <input type="text" class="form-control" id="floatingInputInvalid3" placeholder="name@example.com" onchange="validateZipCode()" >
+            <label for="floatingInputInvalid">Code postal</label>
+        </div>
+
+        <div class="form-floating mb-3 col-6">
+            <input type="email" class="form-control" id="floatingInputInvalid4" placeholder="name@example.com" onchange="validateEmail()" >
+            <label for="floatingInputInvalid">Courriel</label>
+        </div>
+        <div class="form-floating mb-3 col-6">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Description</label>
+        </div>
+        <div class="form-floating mb-3 col-6" id="f1">
+            <select class="form-select"  id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value)">
+                <option selected value="0">Choisissez une option</option>
+                <option value="mouton" >Mouton</option>
+                <option value="chien">Chien</option>
+                <option value="serpent">Serpent</option>
+                <option value="escargot">Escargot</option>
+                <option value="kangourou">Kangourou</option>
+            </select>
+            <label for="floatingSelect">Espece</label>
+        </div>
+        
+        <div class="form-floating mb-3 col-6" id="f2" style="display: none;">
+            <select class="form-select"  id="floatingSelect1" aria-label="Floating label select example">
+                <option selected value="0">Choisissez une race</option>
+                <option value="Dorper">Dorper</option>
+            </select>
+            <label for="floatingSelect">Race</label>
+        </div>
+        
+
+          <div class="form-floating mb-3 col-6" id="f3" style="display: none;">
+            <select class="form-select"  id="floatingSelect2" aria-label="Floating label select example">
+                <option selected value="0">Choisissez une race</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Dalmatien">Dalmatien</option>
+                <option value="Pug">Pug</option>
+            </select>
+            <label for="floatingSelect">Race</label>
+          </div>
+          <div class="form-floating mb-3 col-6" id="f4" style="display: none;">
+            <select class="form-select"  id="floatingSelect3" aria-label="Floating label select example">
+              <option selected value="0">Choisissez une race</option>
+              <option value="Boa">Boa</option>
+            </select>
+            <label for="floatingSelect">Race</label>
+          </div>
+          <div class="form-floating mb-3 col-6" id="f5" style="display: none;">
+            <select class="form-select"  id="floatingSelect4" aria-label="Floating label select example">
+              <option selected value="0">Choisissez une race</option>
+              <option value="Inconnu">Inconnu</option>
+
+            </select>
+            <label for="floatingSelect">Race</label>
+          </div>
+          <div class="form-floating mb-3 col-6" id="f6" style="display: none;">
+            <select class="form-select"  id="floatingSelect5" aria-label="Floating label select example">
+              <option selected value="0">Choisissez une race</option>
+              <option value="Inconnu">Inconnu</option>
+            </select>
+            <label for="floatingSelect">Race</label>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Accepter les termes et conditions.
+              </label>
+              <div class="invalid-feedback">
+                Il faut accepter les termes et conditions.
+              </div>
+              <div id="invalid-selection">
+                Il faut choisir une espece et une race.
+              </div>
             </div>
-            <div class="Container1">
-               <h1>
-                  Bienvenue dans notre centre d'adoption
-               </h1>
-               <p>Remplissez ce formulaire pour mettre votre animal de compagnie en adoption.</p>
-               <form action="{{ url_for('soumettre') }}" method="post">
-               <div class="formulaire">
-                  <div id="name"></div>  
-                  <label for="description">Le nom de l'animal</label>       
-                     <input type="text" id="nom" name="nom" placeholder="Le nom de votre animal" required>
-
-                  <p id="msgerrage">      erreur   </p> 
-                  <label for="description">L'age de l'animal</label>   
-                  <input type="text" id="age" name="age" placeholder="L'age de votre animal" required>
-                  <p id="msgerrespece">    </p>
-                  <select id="espece" name="espece" onchange="especeFunction(this.value)">
-                     <option value="option" > Choississez une option</option>
-                     <option value="mouton" >Mouton</option>
-                     <option value="chien">Chien</option>
-                     <option value="serpent">Serpent</option>
-                     <option value="escargot">Escargot</option>
-                     <option value="kangourou">Kangourou</option>
-                  </select>
-                  
-                  
-
-                  <label for="race">Quelle est la race de votre animal</label>
-                  <select id="mouton" name="race">
-                     <option value="Dorper">Dorper</option>
-                  </select>
-
-
-                  <select id="chien">
-                     <option value="Chihuahua">Chihuahua</option>
-                     <option value="Dalmatien">Dalmatien</option>
-                     <option value="Pug">Pug</option>
-                  </select>
-
-                  <select id="serpent">
-                     <option value="Boa">Boa</option>
-                  </select>
-
-                  <select id="poisson">
-                     <option value="Poisson rouge">Poisson rouge</option>
-                     <option value="Tétra néon">Tétra néon</option>
-                     <option value="Guppy">Guppy</option>
-                     <option value="Betta splendens">Betta splendens</option>
-                     <option value="Poisson combattant">Poisson combattant</option>
-                     <option value="Barbus cerise">Barbus cerise</option>
-                     <option value="Poisson-ange">Poisson-ange</option>
-                     <option value="Discus">Discus</option>
-                     <option value="Poisson-clown">Poisson-clown</option>
-                     <option value="Poisson-chat">Poisson-chat</option>
-                  </select>
-
-                  <select id="oiseau">
-                     <option value="Perroquet">Perroquet</option>
-                     <option value="Canari">Canari</option>
-                     <option value="Perruche ondulée">Perruche ondulée</option>
-                     <option value="Ara">Ara</option>
-                     <option value="Pinson">Pinson</option>
-                     <option value="Colombe">Colombe</option>
-                     <option value="Cacatoès">Cacatoès</option>
-                     <option value="Poule">Poule</option>
-                     <option value="Faucon">Faucon</option>
-                     <option value="Corbeau">Corbeau</option>
-                  </select>                  
-
-
-                  <select id="escargot">
-                     <option value="Inconnu">Inconnu</option>
-                  </select>
-
-                  <select id="kangourou">
-                     <option value="Inconnu">Inconnu</option>
-                  </select>                   
-
-               <p id="msgerrdescription"></p>
-
-                  <label for="description">Description de l'animal</label>
-                  <textarea id="description" name="description" placeholder="Dites nous en details" required></textarea>
-
-                  <p id="msgerradresse">          </p>  
-                  <label for="adresse">L'adresse civique </label>       
-                  <input type="text" id="adresse" name="adresse" placeholder="L'adresse civique'" required>
-
-                  <p id="msgerrville">          </p> 
-                  <label for="ville">La ville </label>        
-                  <input type="text" id="ville" name="ville" placeholder="La ville" required>
-
-                  <p id="msgerrcodepostal">          </p>  
-                  <label for="codepostal">Le code postal</label>       
-                  <input type="text" id="codepostal" name="codepostal" placeholder="Le code postal" required  onkeydown="checkEnterKey(event)">
-
-
-
-                  <p id="msgerremail">    </p>
-                  <label for="email">Votre addresse couriel</label>
-                  <input type="text" id="email" name="email" placeholder="example@company.com" required>
-
-                  <input type="submit" id="submit" value="Soumettre" onclick="return  soumettre()">
-               </form>
-               </div>
-               <p id="bottom-text">Nous vous contacterons dans un délai de 2 à 3 jours ouvrables concernant votre plainte.</p>
-            </div>
-            <div class="right">
-            </div>
-         </div>
-      </div>
+          </div>
+          <div class="col-12" id="soumettre">
+            <button class="btn btn-primary"  type="submit" onclick="validateCheckbox()">Soumettre</button>
+          </div>
+    </div>
+</div>
+    
       <hr id="Hr">
       <div class="footer">
-         <a target="_blank" href="https://www.facebook.com/pages/Hopital-Moulay-Abdellah/286803541813179">
-         <button class="facebook" type="button">
-         <img src="data:image/png;base64,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" alt="Facebook">
-         </button>
-         </a>
-         <a target="_blank" href="https://www.instagram.com/zackariae_bou/?next=%2F">
-         <button class="instagram" type="button">
-         <img src="https://www.droid-life.com/wp-content/uploads/2016/05/new-instagram-icon22.jpg" alt="ig logo">
-         </button>
-         </a>
-         <a class="addresse" target="_blank" href="https://www.google.com/maps/place/H%C3%B4pital+Moulay+Abdellah/@33.6977869,-7.3880887,17z/data=!3m1!4b1!4m6!3m5!1s0xda7b6f06d0f45e1:0x97ce218f4fa2c700!8m2!3d33.6977869!4d-7.3855138!16s%2Fg%2F1tdrgqv4?entry=ttu">
-         <span>13 Rue de Baghdad, Mohammédia, Maroc</span>
-         </a>              
-         <span class="tel">Tel: +212523303247</span>
-         <a class="mail" href="mailto:z.bouargan@aui.ma">Nous contacter pas couriel</a>
+         
+         <a class="mail" href="mailto:z.bouargan@aui.ma">Nous contacter par couriel</a>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
    </body>
 </html>
