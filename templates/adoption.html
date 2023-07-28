@@ -41,13 +41,13 @@
         <div id="left">
         </div>
        <div class="container">
-
+         <form action="{{ url_for('soumettre') }}" method="post">
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" id="floatingInputInvalid1" placeholder="name@example.com" oninput="validateInput()">
+            <input type="text" class="form-control" id="floatingInputInvalid1" name="nom" placeholder="name@example.com" oninput="validateInput()">
             <label for="floatingInputInvalid">Nom de l'animal</label>
         </div>
         <div class="mb-3 col-6">
-            <select class="form-select" id="age" aria-label="Default select example">
+            <select class="form-select" name="age" id="age" aria-label="Default select example" onchange="validateAge()">
                 <option selected value="$">Quelle age a votre animal</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -82,30 +82,30 @@
             </select>
         </div>
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" id="floatingInputInvalid1" placeholder="name@example.com" onchange="validateInput()">
+            <input type="text" class="form-control" name="ville" id="floatingInputInvalid1" placeholder="name@example.com" onchange="validateInput()">
             <label for="floatingInputInvalid">La ville</label>
         </div>
 
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" id="floatingInputInvalid2" placeholder="name@example.com" onchange="">
+            <input type="text" class="form-control" name="adresse" id="floatingInputInvalid2" placeholder="name@example.com" onchange="">
             <label for="floatingInputInvalid">L'addresse civique</label>
         </div>
 
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" id="floatingInputInvalid3" placeholder="name@example.com" onchange="validateZipCode()" >
+            <input type="text" class="form-control" name="codepostal" id="floatingInputInvalid3" placeholder="name@example.com" onchange="validateZipCode()" >
             <label for="floatingInputInvalid">Code postal</label>
         </div>
 
         <div class="form-floating mb-3 col-6">
-            <input type="email" class="form-control" id="floatingInputInvalid4" placeholder="name@example.com" onchange="validateEmail()" >
+            <input type="email" class="form-control" name="email" id="floatingInputInvalid4" placeholder="name@example.com" onchange="validateEmail()" >
             <label for="floatingInputInvalid">Courriel</label>
         </div>
         <div class="form-floating mb-3 col-6">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" id="Desc" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" oninput="validateDesc()"></textarea>
             <label for="floatingTextarea2">Description</label>
         </div>
         <div class="form-floating mb-3 col-6" id="f1">
-            <select class="form-select"  id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value)">
+            <select class="form-select" name="espece" id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value)">
                 <option selected value="0">Choisissez une option</option>
                 <option value="mouton" >Mouton</option>
                 <option value="chien">Chien</option>
@@ -117,7 +117,7 @@
         </div>
         
         <div class="form-floating mb-3 col-6" id="f2" style="display: none;">
-            <select class="form-select"  id="floatingSelect1" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect1" aria-label="Floating label select example" onchange="">
                 <option selected value="0">Choisissez une race</option>
                 <option value="Dorper">Dorper</option>
             </select>
@@ -126,7 +126,7 @@
         
 
           <div class="form-floating mb-3 col-6" id="f3" style="display: none;">
-            <select class="form-select"  id="floatingSelect2" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect2" aria-label="Floating label select example">
                 <option selected value="0">Choisissez une race</option>
                 <option value="Chihuahua">Chihuahua</option>
                 <option value="Dalmatien">Dalmatien</option>
@@ -135,14 +135,14 @@
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f4" style="display: none;">
-            <select class="form-select"  id="floatingSelect3" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect3" aria-label="Floating label select example">
               <option selected value="0">Choisissez une race</option>
               <option value="Boa">Boa</option>
             </select>
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f5" style="display: none;">
-            <select class="form-select"  id="floatingSelect4" aria-label="Floating label select example">
+            <select class="form-select" name="race"  id="floatingSelect4" aria-label="Floating label select example">
               <option selected value="0">Choisissez une race</option>
               <option value="Inconnu">Inconnu</option>
 
@@ -150,7 +150,7 @@
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f6" style="display: none;">
-            <select class="form-select"  id="floatingSelect5" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect5" aria-label="Floating label select example">
               <option selected value="0">Choisissez une race</option>
               <option value="Inconnu">Inconnu</option>
             </select>
@@ -165,14 +165,15 @@
               <div class="invalid-feedback">
                 Il faut accepter les termes et conditions.
               </div>
-              <div id="invalid-selection">
+              <div class="invalid-selection">
                 Il faut choisir une espece et une race.
               </div>
             </div>
           </div>
           <div class="col-12" id="soumettre">
-            <button class="btn btn-primary"  type="submit" onclick="validateCheckbox()">Soumettre</button>
+            <button class="btn btn-primary" value="Soumettre" type="submit" onclick="flag=validateForm();console.log(flag);if(flag)return soumettre();">Soumettre</button>
           </div>
+         </form>
     </div>
 </div>
     
