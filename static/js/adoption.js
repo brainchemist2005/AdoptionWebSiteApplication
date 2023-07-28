@@ -6,28 +6,38 @@ function especeFunction(valeur)
     var element4 = document.getElementById("f5");
     var element5 = document.getElementById("f6");
 
-    element1.style.display = "none";
-    element2.style.display = "none";
-    element3.style.display = "none";
-    element4.style.display = "none";
-    element5.style.display = "none";
+    // Reset all select inputs for species to the default value
+    resetSelectElements(["floatingSelect1", "floatingSelect2", "floatingSelect3", "floatingSelect4", "floatingSelect5"]);
 
-    if(valeur == "mouton")
+    // Hide all species specific dropdowns
+    [element1, element2, element3, element4, element5].forEach(element => element.style.display = "none");
+
+    if(valeur == "mouton") {
         element1.style.display = "";
-
-    else if (valeur == "chien")
+        document.getElementById("floatingSelect1").name = "race";
+    } else if (valeur == "chien") {
         element2.style.display = "";
-    
-    else if (valeur == "serpent")
+        document.getElementById("floatingSelect2").name = "race";
+    } else if (valeur == "serpent") {
         element3.style.display = "";
-
-    else if (valeur == "escargot")
+        document.getElementById("floatingSelect3").name = "race";
+    } else if (valeur == "escargot") {
         element4.style.display = "";
-
-    else if (valeur == "kangourou")
+        document.getElementById("floatingSelect4").name = "race";
+    } else if (valeur == "kangourou") {
         element5.style.display = "";
-    
+        document.getElementById("floatingSelect5").name = "race";
     }
+}
+
+function resetSelectElements(ids) {
+    ids.forEach(id => {
+        var select = document.getElementById(id);
+        select.selectedIndex = 0;
+        select.name = "";
+    });
+}
+
 
 function validateInput() {
         var input = document.getElementById("floatingInputInvalid1");
@@ -188,3 +198,4 @@ function validateRace() {
 
     return isValid;
 }
+
