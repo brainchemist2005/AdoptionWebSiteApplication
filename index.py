@@ -41,7 +41,7 @@ def succes():
 @app.route('/animal/<id_animal>', methods=['GET'])
 def animal_page(id_animal):
     animal = get_db().get_animal(id_animal)
-    if animal:return render_template('resultat_recherche.html', animal=animal)
+    if animal:return render_template('details.html', animal=animal)
     elif animal is None: return redirect(404)
 
 @app.route('/page_animal', methods=['GET'])
@@ -137,6 +137,17 @@ def accueil():
         animauxHasard = animaux
 
     return render_template('accueil.html', animaux=animauxHasard)
+
+@app.route('/recherche')
+def recherche():
+    Kword = request.args.get('Kword').lower()
+    animaux = get_db().get_animaux()
+
+    filter_animaux = [animal for animal in animaux 
+                      if animal['espece'].lower() in Kword or animal['nom'].lower() in Kword]
+
+    return render_template('resultat_recherche.html', animaux=filter_animaux)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
