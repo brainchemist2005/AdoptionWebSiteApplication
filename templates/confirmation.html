@@ -3,23 +3,24 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/confirmation.css') }}">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Plainte</title>
       
    </head>
    <body>
        
-    <p>Voici ce que vous avez entre</p>
-    <p> {{nom}} </p> 
-    <p>{{age}} </p> 
-    <p>{{description}} </p> 
-    <p>{{adresse}} </p> 
-    <p>{{ville}} </p> 
-    <p>{{codepostal}} </p>  
-    <p>{{email}} </p> 
-    <p>Merci! Bonne journee</p>
-    <a href="/">Revenir a la page d'acceuil</a>
-
+    <p class="confirmation">Voici ce que vous avez entre</p>
+    <p class="confirmation"> Le nom de l'animal:{{nom}} </p> 
+    <p class="confirmation">L'age de l'animal:{{age}} </p> 
+    <p class="confirmation">La description:{{description}} </p> 
+    <p class="confirmation">L'adresse:{{adresse}} </p> 
+    <p class="confirmation">La ville:{{ville}} </p> 
+    <p class="confirmation">Le code postal:{{codepostal}} </p>  
+    <p class="confirmation">L'email:{{email}} </p> 
+    <p class="confirmation">Merci! Bonne journee</p>
+    <a class="confirmation" href="/">Revenir a la page d'acceuil</a>
+    <img class="imgconf" src="{{url_for('static',filename= 'Images/confirmation.jpeg')}}"> </img>
 
    </body>
-   </html>>
+   </html>

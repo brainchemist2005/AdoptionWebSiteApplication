@@ -26,9 +26,9 @@ def form():
 
     return render_template('accueil.html', animaux=animauxHasard)
 
-@app.route('/about')
-def about_us():
-    return render_template('SavoirPlus.html')
+@app.route('/apropos')
+def apropos():
+    return render_template('apropos.html')
 
 @app.route("/erreur")
 def erreur():
