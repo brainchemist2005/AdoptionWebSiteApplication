@@ -44,6 +44,9 @@ def animal_page(id_animal):
     if animal:return render_template('details.html', animal=animal)
     elif animal is None: return redirect(404)
 
+
+
+
 @app.route('/page_animal', methods=['GET'])
 def contacter_proprietaire():
     return render_template('page_animal.html')
@@ -55,6 +58,11 @@ def not_found(e):
 @app.route('/adoption')
 def adoption():
     return render_template('adoption.html')
+
+
+    
+
+
 
 @app.route('/soumettre', methods=["POST"])
 def soumettre():
@@ -126,7 +134,23 @@ def soumettre():
         get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
                         request.form["age"], request.form["description"], request.form["email"],
                         request.form["adresse"], request.form["ville"], request.form["codepostal"])    
-    return redirect("/succes")
+    nom=request.form["nom"]
+    age= request.form["age"]
+    description= request.form["description"]
+    adresse= request.form["adresse"]
+    ville=request.form["ville"]
+    
+    codepostal=request.form["codepostal"]
+    email=request.form["email"]
+
+
+
+
+    return render_template("confirmation.html", 
+                           nom=nom,age=age,
+                           description=description,
+                           adresse=adresse,ville=ville,
+                           codepostal=codepostal,email=email)
 
 @app.route('/accueil')
 def accueil():
@@ -147,6 +171,7 @@ def recherche():
                       if animal['espece'].lower() in Kword or animal['nom'].lower() in Kword]
 
     return render_template('resultat_recherche.html', animaux=filter_animaux)
+
 
 
 if __name__ == "__main__":
