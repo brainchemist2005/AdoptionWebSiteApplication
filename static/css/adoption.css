@@ -1,25 +1,41 @@
-.container-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
+top {
+	display: flex;
+	background-color: #4d4f50;
+	border: 0px;
+	margin-bottom: 0px;
+	justify-content: space-between;
+	height: 100px;
 }
 
-#logo
-{
-	width: 160px;
-	height: 70px;
-	border-radius: 20px;
+.boutton {
+	margin-top: 20px;
+	width: 60px;
+	height: 60px;
+	background-color: #edfcff;
+	border-width: 0;
+}
+
+
+#navbar{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.boutton img {
+	width: 50%;
+}
+
+#logo {
+	width: 100px;
+	height: 75px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
 }
 
 #left
 {
     margin-right: 650px;
-}
-
-.container 
-{
-    margin-bottom: 25px;
 }
 
 #f1
@@ -48,19 +64,17 @@
     margin-top: 10px;
 }
 
-.invalid-selection{
-	display: none;
-}
-
-.navbar {
-	margin-top: 20px;
-	margin-right: 150px;
-}
-
 .navbar ul li a {
 	text-decoration: none;
 	color: #000;
 	text-transform: uppercase;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
 }
 
 .navbar ul li ::after {
@@ -84,4 +98,18 @@
 
 .navbar ul li :hover:after {
 	width: 100%;
+}
+
+#bar
+{
+	background-color: #b0c8ce;
+}
+
+.navbar {
+	margin-top: 20px;
+}
+
+#logo {
+	width: 100%;
+	border-radius: 10px;
 }

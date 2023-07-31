@@ -1,6 +1,6 @@
 top {
 	display: flex;
-	background-color: #edfcff;
+	background-color: #4d4f50;
 	border: 0px;
 	margin-bottom: 0px;
 	justify-content: space-between;
@@ -36,6 +36,7 @@ top {
 	width: 100px;
 	height: 75px;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	margin-left: 20px;
 }
 
@@ -66,7 +67,7 @@ top {
 
 #Hr {
 	height: 4px;
-	background-color: #b7d3db;
+	background-color: #545758;
 	border: none;
 }
 
@@ -103,4 +104,9 @@ top {
 
 .navbar ul li :hover:after {
 	width: 100%;
+}
+
+#bar
+{
+	background-color: #b0c8ce;
 }

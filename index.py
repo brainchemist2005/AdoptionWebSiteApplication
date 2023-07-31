@@ -60,10 +60,6 @@ def adoption():
     return render_template('adoption.html')
 
 
-    
-
-
-
 @app.route('/soumettre', methods=["POST"])
 def soumettre():
     if len(request.form["nom"]) < 3 or len(request.form["nom"])>20:
@@ -168,12 +164,10 @@ def recherche():
     animaux = get_db().get_animaux()
 
     filter_animaux = [animal for animal in animaux 
-                      if animal['espece'].lower() in Kword or animal['nom'].lower() in Kword]
+                      if Kword in animal['espece'].lower() or Kword in animal['nom'].lower() or Kword in animal['race'].lower() or Kword in animal['ville'].lower()]
 
     return render_template('resultat_recherche.html', animaux=filter_animaux)
 
 
-
 if __name__ == "__main__":
     app.run(debug=True)
-

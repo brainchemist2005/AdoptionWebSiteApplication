@@ -4,14 +4,14 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Plainte</title>
+      <title>Accueil</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/accueil.css') }}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">      <script src=""></script>
    </head>
    <body>   
-      <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
-         <div class="container-fluid">
-           <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}"> </a>
+      <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #6f7070;">
+         <div class="container-fluid" id="bar">
+           <a class="navbar-brand" href="/accueil"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}"> </a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
@@ -47,7 +47,7 @@
      <div class="carousel-inner">
        {% for animal in animaux %}
        <div class="carousel-item {% if loop.first %} active {% endif %}">
-         <img src="{{ url_for('static', filename='Images/' + animal.nom + '.jpeg') }}" class="d-block w-100" alt="{{ animal.nom }}">
+         <img src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="d-block w-100" alt="{{ animal.nom }}">
          <div class="carousel-caption d-none d-md-block">
            <h5>{{ animal.nom }}</h5>
            <p>{{ animal.description }}</p>
