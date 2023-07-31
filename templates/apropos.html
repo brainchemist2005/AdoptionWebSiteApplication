@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Plainte</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/apropos.css') }}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">      <script src=""></script>
+   </head>
+   <body>   
+      <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+         <div class="container-fluid">
+           <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}"> </a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="/accueil">Accueil</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="/adoption">Deposez votre annonce</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/apropos">A propos de nous</a>
+                </li>
+             </ul>
+             
+             <form class="d-flex" action="/recherche" role="search">
+               <input class="form-control me-2" type="search" name="Kword" placeholder="Recherche" aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">Recherche</button>
+             </form>
+           </div>
+         </div>
+       </nav>
+   
+   <div id="base">
+   <body>
+    
+   <p id="para">Nous des animaux a adopter des
+     differents especes comme les chiens,
+    les moutons, les kangourous...
+    Si vous etes intereses vous n'avez 
+    qu'a remplir le formulaire. C'est simple</p>
+
+    <img id="image1" src="{{url_for('static', filename='Images/Chihuahua.jpeg')}}"> 
+    <img id="image2" src="{{url_for('static', filename='Images/Serpent Haut.jpeg')}}"> </img> 
+    <img id="image3" src="{{url_for('static', filename='Images/Madame Long Cou.jpeg')}}"> </img>
+    <img id="image4" src="{{url_for('static', filename='Images/Skippy.jpeg')}}"> </img>
+
+   
+
+
+
+   </body>
