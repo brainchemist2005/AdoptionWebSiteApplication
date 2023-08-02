@@ -41,9 +41,12 @@
 
         <p> Désolé, l'animal entré n'est pas disponible</p>
         <img src="{{ url_for('static', filename='Images/animalnontrouve.jpeg')}}">
-        <a href="/accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-          Retourner a l'acceuil</a><a id="contact" href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
-         </div>
+        <div class="error-template">
+          <div id="contact" class="error-actions">
+              <a href="/accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                  Retourner a l'acceuil</a><a href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
+          </div>
+      </div></div>
          </div>
           <footer class="text-center text-white" style="background-color: #f1f1f1;">
             <div class="container pt-4">

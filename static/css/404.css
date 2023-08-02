@@ -13,6 +13,10 @@ body { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAA
 	text-transform: uppercase;
 }
 
+#cont{
+	margin-bottom: 16%;
+}
+
 .navbar ul li ::after {
 	content: '';
 	height: 3px;
