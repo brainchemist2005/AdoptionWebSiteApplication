@@ -4,15 +4,18 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Plainte</title>
+      <title>Erreur</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/erreur.css') }}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
    </head>
    <body>   
    
     
-    <p>Erreur</p>
-    
-
+    <p class="erreur">Erreur</p>
+    <img class="imageerreur" src="{{ url_for('static', filename='Images/erreur.jpeg')}}">
+    <br>
+    <a href="/accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+      Retourner a l'acceuil</a><a href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
 
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
       <div class="container pt-4">
@@ -34,7 +37,7 @@
     
       <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2023 Copyright:
-        Zakariae BOUARGAN Jinane HATIMI
+        Zakariae BOUARGAN & Jinane HATIM
       </div>
     </footer>
    </body>

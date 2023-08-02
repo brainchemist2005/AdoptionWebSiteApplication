@@ -158,9 +158,11 @@ def recherche():
     animaux = get_db().get_animaux()
 
     filter_animaux = [animal for animal in animaux 
-                      if Kword in animal['espece'].lower() or Kword in animal['nom'].lower() or Kword in animal['race'].lower() or Kword in animal['ville'].lower()]
-
-    return render_template('resultat_recherche.html', animaux=filter_animaux)
+                     if Kword in animal['espece'].lower() or Kword in animal['nom'].lower() or Kword in animal['race'].lower() or Kword in animal['ville'].lower()]
+    if not filter_animaux:
+        return render_template('rientrouve.html')
+    else:  
+        return render_template('resultat_recherche.html', animaux=filter_animaux)
 
 
 if __name__ == "__main__":

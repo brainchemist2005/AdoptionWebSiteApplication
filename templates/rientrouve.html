@@ -25,7 +25,7 @@
                  <a class="nav-link" href="/adoption">Deposez votre annonce</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">A propos de nous</a>
+                  <a class="nav-link" href="/apropos">A propos de nous</a>
                 </li>
              </ul>
              
@@ -39,44 +39,11 @@
       <div id="main">
          <div id="left"></div>
          <div id="details">
-            <div class="card" style="width: 18rem;">
-               <img src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
-               <div class="card-body">
-                  <h5 class="card-title">Nom: {{ animal.nom }}</h5>
-                  <p class="card-text">Description: {{ animal.description }}</p>
-                  <p class="card-text">Age: {{ animal.age }}</p>
-                  <p class="card-text">Espece: {{ animal.espece }}</p>
-                  <p class="card-text">Race: {{ animal.race }}</p>
-                  <p class="card-text">Ville: {{ animal.ville }}</p>
-                  <p class="card-text">Adresse: {{ animal.adresse }}</p>
-                  <p class="card-text">Code postal: {{ animal.cp }}</p>
-                  <a href="mailto:{{ animal.courriel }}" class="btn btn-primary">Etes-vous intersser ?</a>
-               </div>
-            </div>
-         </div>
-      </div>
-      <footer class="text-center text-white" style="background-color: #f1f1f1;">
-         <div class="container pt-4">
-           <section class="mb-4">
-             <a
-               class="btn btn-link btn-floating btn-lg text-dark m-1"
-               href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
-               role="button"
-               data-mdb-ripple-color="dark"
-               ><i class="fab fa-linkedin"></i></a>
-             <a class="btn btn-link btn-floating btn-lg text-dark m-1"
-               href="https://github.com/brainchemist2005"
-               role="button"
-               data-mdb-ripple-color="dark"
-               ><i class="fab fa-github"></i>
-             </a>
-           </section>
-         </div>
-       
-         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-           © 2023 Copyright:
-           Zakariae BOUARGAN Jinane HATIM
-         </div>
-       </footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>   </body>
+
+        <p> Désolé, l'animal entré n'est pas disponible</p>
+        <img src="{{ url_for('static', filename='Images/animalnontrouve.jpeg')}}">
+        <a href="/accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+          Retourner a l'acceuil</a><a href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
+    </body>
+    
 </html>

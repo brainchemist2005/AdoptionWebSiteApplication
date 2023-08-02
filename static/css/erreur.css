@@ -1,0 +1,19 @@
+.erreur{
+    font-size:150px;
+    text-align:center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+.imageerreur{
+    width:300px;
+    height:300px;
+    margin-left:1000px;
+    margin-top: -5%;
+}
+.glyphicon glyphicon-home{
+    font-size:50px;
+
+}  
+.glyphicon glyphicon-envelope{
+    font-size:50px;
+}
