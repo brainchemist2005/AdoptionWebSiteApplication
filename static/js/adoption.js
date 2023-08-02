@@ -46,6 +46,7 @@ function validateInput() {
             return false;
         } else {
             input.className = "form-control is-valid";
+            return true;
         }
     }
 
@@ -57,6 +58,7 @@ function validateZipCode() {
             return false;
         } else {
             input.className = "form-control is-valid";
+            return true;
         }
     }
 
@@ -65,8 +67,10 @@ function validateEmail() {
         var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (!regex.test(input.value)) {
             input.className = "form-control is-invalid";
+            return false;
         } else {
             input.className = "form-control is-valid";
+            return true;
         }
     }
 
@@ -161,13 +165,14 @@ function validateAge()
 {
     var element4 = document.getElementsByClassName("form-select")[0];
 
-    if(element4.value === "$"){
+    if(element4.value === "-1"){
         element4.className="form-select is-invalid";
-        flag = false;
+        return false;
     }
     else
     {
         element4.className='form-select is-valid';
+        return true;
     }
 }
 
@@ -177,9 +182,12 @@ function validateDesc()
 
     if(element1.value === "" || element1.value.length <1){
         element1.className = "form-control is-invalid";
+        return false;
     }
-    else
+    else{
         element1.className = "form-control is-valid";
+        return true;
+    }
 
 }
 
@@ -198,4 +206,3 @@ function validateRace() {
 
     return isValid;
 }
-

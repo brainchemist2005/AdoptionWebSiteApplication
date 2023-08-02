@@ -6,6 +6,15 @@ top {
 	justify-content: space-between;
 	height: 100px;
 }
+#Hr {
+	height: 4px;
+	background-color: #b7d3db;
+	border: none;
+}
+
+.invalid-selection{
+	display: none;
+}
 
 .boutton {
 	margin-top: 20px;

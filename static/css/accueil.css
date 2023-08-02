@@ -71,7 +71,7 @@ top {
 	border: none;
 }
 
-#carouselExampleCaptions{
+#carouselExampleCaptions {
 	margin-left: auto;
 	margin-right: auto;
 	width: 50%;
@@ -106,7 +106,17 @@ top {
 	width: 100%;
 }
 
-#bar
+#bar {
+	background-color: #b0c8ce;
+}
+
+#img_car
+{
+	width: 250px;
+	height: 700px;
+}
+
+#bgFooter
 {
 	background-color: #b0c8ce;
 }

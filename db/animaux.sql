@@ -18,4 +18,3 @@ insert into animaux values (4, 'Skippy', 'Kangourou', 'Inconnu', 7, 'Ancien acte
 insert into animaux values (5, 'Madame Long Cou', 'Escargot', 'Inconnu', 1, 'Escargot de jardin ayant eu une belle vie.', 'snail@snailmail.com', '33 de la Noix', 'Montréal', 'H3R 3J4');
 insert into animaux values (6, 'Serpent Haut', 'Serpent', 'Boa', 3, 'Serpent boa retrouvé au pavillon SH de l''UQAM.', 'serpent@uqam.ca', 'CP8888 Succ Centre-ville', 'Montréal', 'H3B 3C3');
 insert into animaux values (7, 'Mojo', 'Chien', 'Pug', 8, 'Vieux chien bien calme qui aime les promenades au parc.', 'cedric@hotmail.com', '4744 Marquette', 'Contrecoeur', 'J0L 1C0');
-

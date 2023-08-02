@@ -1,25 +1,117 @@
-#para{
-    size:1000px;
-    color:blue
+top {
+	display: flex;
+	background-color: #4d4f50;
+	border: 0px;
+	margin-bottom: 0px;
+	justify-content: space-between;
+	height: 100px;
 }
-#image1{
-    width:500px;
-    height: 500px;
-    
 
+.boutton {
+	margin-top: 20px;
+	width: 60px;
+	height: 60px;
+	background-color: #edfcff;
+	border-width: 0;
 }
-#image2{
-    width:500px;
-    height: 500px;
 
+#bar
+{
+	background-color: #b0c8ce;
 }
-#image3{
-    width:500px;
-    height: 500px;
 
+#logo {
+	width: 100px;
+	height: 75px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
 }
-#image4{
-    width:500px;
-    height: 500px;
 
+#logo {
+    width: 100%;
+	border-radius: 10px;
+}
+
+.navbar {
+	margin-top: 20px;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.navbar ul li ::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #1f6ed4;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.5s;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+	font-family: 'Gotham', sans-serif;
+}
+
+.navbar ul li :hover:after {
+	width: 100%;
+}
+
+#bar
+{
+	background-color: #b0c8ce;
+}
+
+#paragraph
+{
+    display: flex;
+    margin-top: 20px;
+}
+
+#left
+{
+    margin-right: 500px;
+}
+
+#right
+{
+    margin-right: 500px;
+}
+
+#imgs{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: row;
+    margin-left: 100px;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-bottom: 10px;
+}
+
+#imgs div
+{
+    border: solid rgb(156, 138, 138);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#imgs img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+#img1
+{
+    display: flex;
+    flex-direction: column;
 }

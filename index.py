@@ -44,9 +44,6 @@ def animal_page(id_animal):
     if animal:return render_template('details.html', animal=animal)
     elif animal is None: return redirect(404)
 
-
-
-
 @app.route('/page_animal', methods=['GET'])
 def contacter_proprietaire():
     return render_template('page_animal.html')
@@ -87,19 +84,19 @@ def soumettre():
     elif not request.form["nom"].strip() or not request.form["nom"]:
             return redirect("/erreur")
     
-    elif not request.form["description"].strip() or not request.form["nom"]:
+    elif not request.form["description"].strip() or not request.form["description"]:
           return redirect("/erreur")
     
-    elif not request.form["adresse"].strip() or not request.form["nom"]:
+    elif not request.form["adresse"].strip() or not request.form["adresse"]:
             return redirect("/erreur")
     
-    elif not request.form["ville"].strip() or not request.form["nom"]:
+    elif not request.form["ville"].strip() or not request.form["ville"]:
           return redirect("/erreur")
     
-    elif not request.form["codepostal"].strip() or not request.form["nom"]:
+    elif not request.form["codepostal"].strip() or not request.form["codepostal"]:
             return redirect("/erreur")
     
-    elif not request.form["email"].strip() or not request.form["nom"]:
+    elif not request.form["email"].strip() or not request.form["email"]:
           return redirect("/erreur")
     
     elif not request.form["age"].strip() or not request.form["age"]:
@@ -138,9 +135,6 @@ def soumettre():
     
     codepostal=request.form["codepostal"]
     email=request.form["email"]
-
-
-
 
     return render_template("confirmation.html", 
                            nom=nom,age=age,
