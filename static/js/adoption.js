@@ -1,3 +1,52 @@
+window.onload = function() {
+    document.querySelector('form').addEventListener('submit', function(event) {
+        if(!validateForm()) {
+            event.preventDefault();
+        }
+    });
+};
+
+function validateForm(e) {
+    if (!validateInput() || !validateVille() || !validateAdresse() || !validateZipCode() || !validateEmail() || !validateCheckbox() || !validateAge() || !validateDesc() || !validateEspece() || !validateRace() ) {
+        e.preventDefault();
+    }
+}
+
+function validateEspece() {
+    var select = document.getElementById("floatingSelect");
+    if (select.value === "-1") {
+        select.className = "form-select is-invalid";
+        return false;
+    } else {
+        select.className = "form-select is-valid";
+        return true;
+    }
+}
+
+function validateRace() {
+    var select1 = document.getElementById("floatingSelect1");
+    var select2 = document.getElementById("floatingSelect2");
+    var select3 = document.getElementById("floatingSelect3");
+    var select4 = document.getElementById("floatingSelect4");
+    var select5 = document.getElementById("floatingSelect5");
+
+    if (select1.value === "-1" && select2.value === "-1" &&select3.value === "-1" &&select4.value === "-1" && select5.value === "-1") {
+        select1.className = "form-select is-invalid";
+        select2.className = "form-select is-invalid";
+        select3.className = "form-select is-invalid";
+        select4.className = "form-select is-invalid";
+        select5.className = "form-select is-invalid";
+        return false;
+    } else {
+        select1.className = "form-select is-valid";
+        select2.className = "form-select is-valid";
+        select3.className = "form-select is-valid";
+        select4.className = "form-select is-valid";
+        select5.className = "form-select is-valid";
+        return true;
+    }
+}
+
 function especeFunction(valeur)
 {
     var element1 = document.getElementById("f2");
@@ -12,19 +61,19 @@ function especeFunction(valeur)
     // Hide all species specific dropdowns
     [element1, element2, element3, element4, element5].forEach(element => element.style.display = "none");
 
-    if(valeur == "mouton") {
+    if(valeur == "Mouton") {
         element1.style.display = "";
         document.getElementById("floatingSelect1").name = "race";
-    } else if (valeur == "chien") {
+    } else if (valeur == "Chien") {
         element2.style.display = "";
         document.getElementById("floatingSelect2").name = "race";
-    } else if (valeur == "serpent") {
+    } else if (valeur == "Serpent") {
         element3.style.display = "";
         document.getElementById("floatingSelect3").name = "race";
-    } else if (valeur == "escargot") {
+    } else if (valeur == "Escargot") {
         element4.style.display = "";
         document.getElementById("floatingSelect4").name = "race";
-    } else if (valeur == "kangourou") {
+    } else if (valeur == "Kangourou") {
         element5.style.display = "";
         document.getElementById("floatingSelect5").name = "race";
     }
@@ -38,10 +87,9 @@ function resetSelectElements(ids) {
     });
 }
 
-
 function validateInput() {
         var input = document.getElementById("floatingInputInvalid1");
-        if (input.value === "" || input.value.length > 20 || input.value.length < 3 ) {
+        if (input.value === "" || input.value.length > 20 || input.value.length < 3 || input.value.includes(",") ) {
             input.className = "form-control is-invalid";
             return false;
         } else {
@@ -49,6 +97,34 @@ function validateInput() {
             return true;
         }
     }
+
+function validateVille(){
+    var input = document.getElementById("floatingInputInvalidVille");
+
+    if(input.value.length > 75 || input.value === "" || input.value.includes(","))
+    {
+        input.className = "form-control is-invalid";
+        return false;
+    }
+    else 
+    {
+        input.className = "form-control is-valid";
+        return true;
+    }
+}
+
+function validateAdresse() {
+    var input = document.getElementById("floatingInputInvalid2");
+
+    if(input.value.includes(",") || input.value === "" || input.value.length > 75) {
+        input.className = "form-control is-invalid";
+        return false;
+    }
+    else{
+        input.className = "form-control is-valid";
+        return true;
+    }
+}
 
 function validateZipCode() {
         var input = document.getElementById("floatingInputInvalid3");
@@ -75,91 +151,16 @@ function validateEmail() {
     }
 
 function validateCheckbox() {
-    var checkbox = document.getElementById("invalidCheck");
-    var select1 = document.getElementById("floatingSelect"); // Change this
-    var select2 = document.getElementById("floatingSelect1"); 
-    var select3 = document.getElementById("floatingSelect2"); 
-    var select4 = document.getElementById("floatingSelect3"); 
-    var select5 = document.getElementById("floatingSelect4"); 
-    var select6 = document.getElementById("floatingSelect5"); 
-    var element3 = document.getElementsByClassName("invalid-selection")[0];
-    var element4 = document.getElementsByClassName("form-select")[0];
-    var flag = true;
-
-    element3.style.display="none";
-
-    if(element4.value === "$"){
-        element4.className="form-select is-invalid";
-        flag = false;
-    }
-    else
-    {
-        element4.className='form-select';
-    }
-
-    element3.style.display = "none";
-
+    var checkbox = document.getElementById('invalidCheck');
     if (!checkbox.checked) {
         checkbox.className = "form-check-input is-invalid";
-        flag = false;
+        return false;
     } else {
         checkbox.className = "form-check-input is-valid";
+        return true;
     }
-
-    if(select1.value == "0")
-    {
-        element3.style.display = "inline";
-        element3.style.color = "red";
-        element3.className="invalid-selection is-invalid";
-        flag = false;
-    }
-    else if(select1.value != "0"){
-        element3.className="invalid-selection";
-        element3.style.display="none";
-    }
-
-    console.log(select3.value);
-
-    if(select2.value === "0" && select3.value === "0" &&select4.value === "0" &&select5.value === "0" && select6.value === "0"){
-        element3.style.display = "inline";
-        element3.style.color = "red";
-        flag = false;
-        element3.className="invalid-selection is-invalid";
-    }
-    else{
-        element3.className="invalid-selection";
-        element3.style.display="none";
-    }
-
-    return flag;
 }
 
-function validateForm() {
-    var isInvalid = document.getElementsByClassName('is-invalid');
-
-    validateRace();
-    console.log(validateInput() + " " +validateZipCode() + " " + validateEmail() + " " + validateCheckbox() );
-    console.log(isInvalid.length == 0);
-
-    for(var i=0; i<isInvalid.length ; i++)
-        console.log(isInvalid[i].value);
-
-    if(isInvalid.length == 0
-    // check if there are any elements with class 'is-invalid'
-    )
-    return true;
-
-    if (isInvalid) {
-        // prevent the form from submitting
-        event.preventDefault();
-        event.stopPropagation();
-        console.log("Nope");
-        return false;
-    }
-
-    console.log("Nope");
-    return false;
-}
 
 function validateAge()
 {
@@ -180,7 +181,7 @@ function validateDesc()
 {
     var element1 = document.getElementById("Desc");
 
-    if(element1.value === "" || element1.value.length <1){
+    if(element1.value === "" || element1.value.length <1 || element1.value.length > 500){
         element1.className = "form-control is-invalid";
         return false;
     }
@@ -189,20 +190,4 @@ function validateDesc()
         return true;
     }
 
-}
-
-function validateRace() {
-    var selects = document.getElementsByClassName("form-select"); 
-    var isValid = true; // Assume valid until proven otherwise
-
-    for (var i = 2; i <= 6; i++) {
-        if (selects[i].value == "0") {
-            selects[i].className = "form-control is-invalid";
-            isValid = false; // If any select value is "0", the overall validation is not valid
-        } else {
-            selects[i].className = "form-control is-valid";
-        }
-    }
-
-    return isValid;
 }

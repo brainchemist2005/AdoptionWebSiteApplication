@@ -42,7 +42,7 @@
         <div id="left">
         </div>
        <div class="container">
-         <form id="myForm" action="/soumettre" method="post">
+         <form onsubmit="return validateForm();" id="myForm" action="/soumettre" method="post">
         <div class="form-floating mb-3 col-6">
             <input type="text" class="form-control" id="floatingInputInvalid1" name="nom" placeholder="name@example.com" oninput="validateInput()">
             <label for="floatingInputInvalid">Nom de l'animal</label>
@@ -84,12 +84,12 @@
             </select>
         </div>
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" name="ville" id="floatingInputInvalid1" placeholder="name@example.com" onchange="validateInput()">
+            <input type="text" class="form-control" name="ville" id="floatingInputInvalidVille" placeholder="name@example.com" onchange="validateVille()">
             <label for="floatingInputInvalid">La ville</label>
         </div>
 
         <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" name="adresse" id="floatingInputInvalid2" placeholder="name@example.com" onchange="">
+            <input type="text" class="form-control" name="adresse" id="floatingInputInvalid2" placeholder="name@example.com" onchange="validateAdresse()">
             <label for="floatingInputInvalid">L'addresse civique</label>
         </div>
 
@@ -107,7 +107,7 @@
             <label for="floatingTextarea2">Description</label>
         </div>
         <div class="form-floating mb-3 col-6" id="f1">
-            <select class="form-select" name="espece" id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value)">
+            <select class="form-select" name="espece" id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value); validateEspece()">
                 <option selected value="-1">Choisissez une option</option>
                 <option value="Mouton" >Mouton</option>
                 <option value="Chien">Chien</option>
@@ -119,7 +119,7 @@
         </div>
         
         <div class="form-floating mb-3 col-6" id="f2" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect1" aria-label="Floating label select example" onchange="">
+            <select class="form-select" name="race" id="floatingSelect1" aria-label="Floating label select example" onchange="validateRace();">
                 <option selected value="-1">Choisissez une race</option>
                 <option value="Dorper">Dorper</option>
             </select>
@@ -127,7 +127,7 @@
         </div>
 
           <div class="form-floating mb-3 col-6" id="f3" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect2" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect2" aria-label="Floating label select example" onchange="validateRace();">
                 <option selected value="-1">Choisissez une race</option>
                 <option value="Chihuahua">Chihuahua</option>
                 <option value="Dalmatien">Dalmatien</option>
@@ -136,14 +136,14 @@
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f4" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect3" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect3" aria-label="Floating label select example" onchange="validateRace();">
               <option selected value="-1">Choisissez une race</option>
               <option value="Boa">Boa</option>
             </select>
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f5" style="display: none;">
-            <select class="form-select" name="race"  id="floatingSelect4" aria-label="Floating label select example">
+            <select class="form-select" name="race"  id="floatingSelect4" aria-label="Floating label select example" onchange="validateRace();">
               <option selected value="-1">Choisissez une race</option>
               <option value="Inconnu">Inconnu</option>
 
@@ -151,7 +151,7 @@
             <label for="floatingSelect">Race</label>
           </div>
           <div class="form-floating mb-3 col-6" id="f6" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect5" aria-label="Floating label select example">
+            <select class="form-select" name="race" id="floatingSelect5" aria-label="Floating label select example" onchange="validateRace();">
               <option selected value="-1">Choisissez une race</option>
               <option value="Inconnu">Inconnu</option>
             </select>
@@ -159,22 +159,22 @@
           </div>
           <div class="col-12">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
               <label class="form-check-label" for="invalidCheck">
                 Accepter les termes et conditions.
               </label>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback is-invalid">
                 Il faut accepter les termes et conditions.
               </div>
-              <div class="invalid-selection">
+              <div class="invalid-selection is-invalid">
                 Il faut choisir une espece et une race.
               </div>
             </div>
           </div>
           <div class="col-12" id="soumettre">
-            <button class="btn btn-primary" value="Soumettre" type="submit" onclick="flag=validateForm();console.log(flag);if(flag)return soumettre();">Soumettre</button>
+            <button class="btn btn-primary" value="Soumettre" type="submit" onclick="validateForm(event)">Soumettre</button>
           </div>
-         </form>
+        </form>
     </div>
 </div>
     
