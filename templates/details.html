@@ -25,7 +25,7 @@
                  <a class="nav-link" href="/adoption">Deposez votre annonce</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">A propos de nous</a>
+                  <a class="nav-link" href="/apropos">A propos de nous</a>
                 </li>
              </ul>
              
@@ -40,8 +40,12 @@
          <div id="left"></div>
          <div id="details">
             <div class="card" style="width: 18rem;">
-               <img src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
-               <div class="card-body">
+              {% if animal.race == "Inconnu" %}
+              <img id="img_car" src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
+              {% else %}
+              <img id="img_car" src="{{ url_for('static', filename='Images/' + animal.race + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
+              {% endif %}
+                <div class="card-body">
                   <h5 class="card-title">Nom: {{ animal.nom }}</h5>
                   <p class="card-text">Description: {{ animal.description }}</p>
                   <p class="card-text">Age: {{ animal.age }}</p>

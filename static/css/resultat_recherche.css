@@ -9,7 +9,6 @@
 }
 
 #details{
-    border: solid 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,4 +114,18 @@ body {
 
 .navbar ul li :hover:after {
 	width: 100%;
+}
+
+#details img
+{
+	width: 50%;
+}
+
+#details p{
+	font-size: 30px;
+}
+
+#contact{
+	margin-top: 5px;
+	margin-bottom: 55px;
 }

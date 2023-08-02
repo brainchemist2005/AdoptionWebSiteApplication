@@ -47,8 +47,11 @@
      <div class="carousel-inner">
        {% for animal in animaux %}
        <div class="carousel-item {% if loop.first %} active {% endif %}">
-         <img src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="d-block w-100" alt="{{ animal.nom }}" id="img_car">
-         <div class="carousel-caption d-none d-md-block">
+        {% if animal.race == "Inconnu" %}
+        <img id="img_car" src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
+        {% else %}
+        <img id="img_car" src="{{ url_for('static', filename='Images/' + animal.race + '.jpeg') }}" class="card-img-top" alt="{{ animal.nom }}">
+        {% endif %}         <div class="carousel-caption d-none d-md-block">
            <h5>{{ animal.nom }}</h5>
            <p>{{ animal.description }}</p>
            <a href="/animal/{{animal.id}}" class="btn btn-light">En savoir plus</a>

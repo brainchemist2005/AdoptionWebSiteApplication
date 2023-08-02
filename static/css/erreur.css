@@ -1,19 +1,86 @@
 .erreur{
-    font-size:150px;
+    font-size:70px;
     text-align:center;
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-bottom: 25px;
 }
-.imageerreur{
-    width:300px;
-    height:300px;
-    margin-left:1000px;
-    margin-top: -5%;
-}
+
 .glyphicon glyphicon-home{
     font-size:50px;
 
 }  
 .glyphicon glyphicon-envelope{
     font-size:50px;
+}
+
+#navbar{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navbar {
+	margin-top: 20px;
+	margin-right: 150px;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.navbar ul li ::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #1f6ed4;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.5s;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+	font-family: 'Gotham', sans-serif;
+}
+
+.navbar ul li :hover:after {
+	width: 100%;
+}
+
+#bar {
+	background-color: #b0c8ce;
+}
+
+#bgFooter
+{
+	background-color: #b0c8ce;
+}
+
+#logo {
+	width: 100px;
+	height: 75px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
+#logo {
+	width: 100%;
+	border-radius: 10px;
+}
+
+#sadDog
+{
+    width: 30%;
+    margin-left: 600px;
+}
+
+#buttons
+{
+    margin-left: 700px;
+    margin-bottom: 20px;
 }

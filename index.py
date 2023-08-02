@@ -124,23 +124,11 @@ def soumettre():
         return redirect("/erreur")
 
     else :
-        get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
+        lastId = get_db().add_animal(request.form["nom"], request.form["espece"], request.form["race"], 
                         request.form["age"], request.form["description"], request.form["email"],
                         request.form["adresse"], request.form["ville"], request.form["codepostal"])    
-    nom=request.form["nom"]
-    age= request.form["age"]
-    description= request.form["description"]
-    adresse= request.form["adresse"]
-    ville=request.form["ville"]
-    
-    codepostal=request.form["codepostal"]
-    email=request.form["email"]
-
-    return render_template("confirmation.html", 
-                           nom=nom,age=age,
-                           description=description,
-                           adresse=adresse,ville=ville,
-                           codepostal=codepostal,email=email)
+        
+        return redirect(f"/animal/{lastId}")
 
 @app.route('/accueil')
 def accueil():

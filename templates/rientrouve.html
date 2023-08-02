@@ -4,8 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/details.css') }}">
-      <script src="resultat_recherche.js"></script>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultat_recherche.css') }}">
       <title>Details d'animal</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   </head>
@@ -43,7 +42,33 @@
         <p> Désolé, l'animal entré n'est pas disponible</p>
         <img src="{{ url_for('static', filename='Images/animalnontrouve.jpeg')}}">
         <a href="/accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-          Retourner a l'acceuil</a><a href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
+          Retourner a l'acceuil</a><a id="contact" href="mailto:z.bouargan@aui.ma" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Nous contactez </a>
+         </div>
+         </div>
+          <footer class="text-center text-white" style="background-color: #f1f1f1;">
+            <div class="container pt-4">
+              <section class="mb-4">
+                <a
+                  class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-linkedin"></i></a>
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://github.com/brainchemist2005"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-github"></i>
+                </a>
+              </section>
+            </div>
+          
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2023 Copyright:
+              Zakariae BOUARGAN Jinane HATIM
+            </div>
+          </footer>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>   
     </body>
     
 </html>
