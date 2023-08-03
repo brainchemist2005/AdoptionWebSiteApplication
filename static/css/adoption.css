@@ -122,3 +122,8 @@ top {
 	width: 100%;
 	border-radius: 10px;
 }
+
+#header1{
+	margin-bottom: 15px;
+	margin-left: 10%;
+}
