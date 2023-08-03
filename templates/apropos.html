@@ -6,101 +6,91 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>A propos</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/apropos.css') }}">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">      <script src=""></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    </head>
-   <body>   
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   </head>
+   <body>
       <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
          <div class="container-fluid" id="bar">
-           <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}"> </a>
-           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                 <a class="nav-link active" aria-current="page" href="/accueil">Accueil</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="/adoption">Deposez votre annonce</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/apropos">A propos de nous</a>
-                </li>
-             </ul>
-             
-             <form class="d-flex" action="/recherche" role="search">
-               <input class="form-control me-2" type="search" name="Kword" placeholder="Recherche" aria-label="Search">
-               <button class="btn btn-outline-success" type="submit">Recherche</button>
-             </form>
-           </div>
+            <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}" alt="logo"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="/accueil">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/adoption">Deposez votre annonce</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/apropos">A propos de nous</a>
+                  </li>
+               </ul>
+               <form class="d-flex" action="/recherche" role="search">
+                  <input class="form-control me-2" type="search" name="Kword" placeholder="Recherche" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Recherche</button>
+               </form>
+            </div>
          </div>
-       </nav>
-   
-   <div id="base">
-   <body>
-    
-    <div id="paragraph">
-      <div id="left"></div>
-      <div id="texte">
-      <h1>A propos de nous</h1>
-    <p id="para" >Nous sommes ravis de vous annoncer que nous avons une grande variété d'animaux qui cherchent une maison aimante. Nos animaux comprennent des espèces diverses telles que des chiens, des moutons, des kangourous et beaucoup d'autres. Chaque animal a une personnalité unique et apporte une joie indéniable à la vie.
-
-    Nous travaillons sans relâche pour nous assurer que chaque animal reçoit les soins appropriés jusqu'à ce qu'il soit adopté. Et nous sommes tout aussi déterminés à trouver les meilleures maisons pour eux. Notre mission est de créer un lien parfait entre vous et votre nouvel ami à fourrure.
-    
-    Adopter un animal n'est pas seulement sauver une vie, c'est aussi enrichir la vôtre. Les animaux peuvent apporter de la joie, de la compagnie et même de la santé mentale et physique. De plus, adopter plutôt qu'acheter contribue à réduire le nombre d'animaux en surpopulation dans les refuges.
-    
-    Notre processus d'adoption est conçu pour être aussi simple et convivial que possible. Si vous êtes intéressé par l'adoption, tout ce que vous avez à faire est de remplir notre formulaire. Nous demandons des informations de base et discutons de ce que vous recherchez dans un animal de compagnie. Cela nous aide à vous jumeler avec l'animal qui correspond le mieux à votre style de vie et à vos attentes.
-    
-    Une fois le formulaire rempli et soumis, notre équipe examinera vos informations et prendra contact avec vous pour discuter des prochaines étapes. Cela pourrait inclure une visite de votre domicile, une rencontre avec l'animal, ou des discussions supplémentaires pour vous assurer que vous et l'animal êtes bien assortis.
-    
-    Adopter un animal est une décision merveilleuse et gratifiante, et nous sommes là pour vous soutenir à chaque étape. Alors, êtes-vous prêt à ouvrir votre cœur et votre maison à un nouvel ami à fourrure? Si oui, remplissez notre formulaire aujourd'hui et commencez votre voyage d'adoption avec nous.</p>
-  </div>
-    <div id="right"></div>
-  </div>
-
-  <div id="imgs">
-    <div id="img1">
-      <img id="image1" src="{{url_for('static', filename='Images/Chien.jpeg')}}">
-      <p>Rencontrez Tibo, un chien charmant et <br>dynamique qui a récemment trouvé un <br>foyer aimant. Son maître partage que<br> Tibo est une source quotidienne de joie <br> et a apporté un bonheur incommensurable <br>à leur vie.</p>
-    </div>
-    <div id="img2">
-      <img id="image2" src="{{url_for('static', filename='Images/Serpent.jpeg')}}">
-      <p>C'est Sly, un serpent au caractère doux <br>qui a captivé le cœur de son nouveau<br> propriétaire. Sly est fascinant et ses soins <br>particuliers sont une expérience<br> enrichissante pour sa famille.</p>
-    </div>
-    <div id="img3">
-      <img id="image3" src="{{url_for('static', filename='Images/Kangourou.jpeg')}}">
-      <p>Voici Kangy, un kangourou adorable qui a <br>trouvé une famille qui adore sa <br>compagnie. Kangy est un compagnon <br>unique, apportant une touche d'exotisme <br>et d'aventure à sa nouvelle maison.</p>
-    </div>
-    <div id="img4">
-      <img id="image4" src="{{url_for('static', filename='Images/Mouton.jpeg')}}">
-      <p>Voici Wooly, un mouton affectueux qui a <br>trouvé un foyer avec beaucoup d'espace <br>pour gambader. Wooly est adoré pour <br>sa nature douce et son pelage doux et câlin.</p>
-    </div>
-  </div>
-
-  <footer class="text-center text-white" style="background-color: #f1f1f1;">
-    <div class="container pt-4">
-      <section class="mb-4">
-        <a
-          class="btn btn-link btn-floating btn-lg text-dark m-1"
-          href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
-          role="button"
-          data-mdb-ripple-color="dark"
-          ><i class="fab fa-linkedin"></i></a>
-        <a class="btn btn-link btn-floating btn-lg text-dark m-1"
-          href="https://github.com/brainchemist2005"
-          role="button"
-          data-mdb-ripple-color="dark"
-          ><i class="fab fa-github"></i>
-        </a>
-      </section>
-    </div>
-  
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2023 Copyright:
-      Zakariae BOUARGAN Jinane HATIM
-    </div>
-  </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    </body>
+      </nav>
+      <div id="base">
+         <div id="paragraph">
+            <div id="left"></div>
+            <div id="texte">
+               <h1>A propos de nous</h1>
+               <p id="para" >Nous sommes ravis de vous annoncer que nous avons une grande variété d'animaux qui cherchent une maison aimante. Nos animaux comprennent des espèces diverses telles que des chiens, des moutons, des kangourous et beaucoup d'autres. Chaque animal a une personnalité unique et apporte une joie indéniable à la vie.
+                  Nous travaillons sans relâche pour nous assurer que chaque animal reçoit les soins appropriés jusqu'à ce qu'il soit adopté. Et nous sommes tout aussi déterminés à trouver les meilleures maisons pour eux. Notre mission est de créer un lien parfait entre vous et votre nouvel ami à fourrure.
+                  Adopter un animal n'est pas seulement sauver une vie, c'est aussi enrichir la vôtre. Les animaux peuvent apporter de la joie, de la compagnie et même de la santé mentale et physique. De plus, adopter plutôt qu'acheter contribue à réduire le nombre d'animaux en surpopulation dans les refuges.
+                  Notre processus d'adoption est conçu pour être aussi simple et convivial que possible. Si vous êtes intéressé par l'adoption, tout ce que vous avez à faire est de remplir notre formulaire. Nous demandons des informations de base et discutons de ce que vous recherchez dans un animal de compagnie. Cela nous aide à vous jumeler avec l'animal qui correspond le mieux à votre style de vie et à vos attentes.
+                  Une fois le formulaire rempli et soumis, notre équipe examinera vos informations et prendra contact avec vous pour discuter des prochaines étapes. Cela pourrait inclure une visite de votre domicile, une rencontre avec l'animal, ou des discussions supplémentaires pour vous assurer que vous et l'animal êtes bien assortis.
+                  Adopter un animal est une décision merveilleuse et gratifiante, et nous sommes là pour vous soutenir à chaque étape. Alors, êtes-vous prêt à ouvrir votre cœur et votre maison à un nouvel ami à fourrure? Si oui, remplissez notre formulaire aujourd'hui et commencez votre voyage d'adoption avec nous.
+               </p>
+            </div>
+            <div id="right"></div>
+         </div>
+         <div id="imgs">
+            <div id="img1">
+               <img id="image1" src="{{url_for('static', filename='Images/Chien.jpeg')}}" alt="chien">
+               <p>Rencontrez Tibo, un chien charmant et <br>dynamique qui a récemment trouvé un <br>foyer aimant. Son maître partage que<br> Tibo est une source quotidienne de joie <br> et a apporté un bonheur incommensurable <br>à leur vie.</p>
+            </div>
+            <div id="img2">
+               <img id="image2" src="{{url_for('static', filename='Images/Serpent.jpeg')}}" alt="serpent">
+               <p>C'est Sly, un serpent au caractère doux <br>qui a captivé le cœur de son nouveau<br> propriétaire. Sly est fascinant et ses soins <br>particuliers sont une expérience<br> enrichissante pour sa famille.</p>
+            </div>
+            <div id="img3">
+               <img id="image3" src="{{url_for('static', filename='Images/Kangourou.jpeg')}}" alt="kangourou">
+               <p>Voici Kangy, un kangourou adorable qui a <br>trouvé une famille qui adore sa <br>compagnie. Kangy est un compagnon <br>unique, apportant une touche d'exotisme <br>et d'aventure à sa nouvelle maison.</p>
+            </div>
+            <div id="img4">
+               <img id="image4" src="{{url_for('static', filename='Images/Mouton.jpeg')}}" alt="mouton">
+               <p>Voici Wooly, un mouton affectueux qui a <br>trouvé un foyer avec beaucoup d'espace <br>pour gambader. Wooly est adoré pour <br>sa nature douce et son pelage doux et câlin.</p>
+            </div>
+         </div>
+      </div>
+      <footer class="text-center text-white" style="background-color: #f1f1f1;">
+         <div class="container pt-4">
+            <section class="mb-4">
+               <a
+                  class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-linkedin"></i></a>
+               <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://github.com/brainchemist2005"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-github"></i>
+               </a>
+            </section>
+         </div>
+         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            Zakariae BOUARGAN Jinane HATIM
+         </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   </body>
 </html>
