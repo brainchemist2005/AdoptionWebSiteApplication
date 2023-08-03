@@ -7,201 +7,191 @@
       <title>Adoption</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/adoption.css') }}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
       <script src="{{ url_for('static', filename='js/adoption.js') }}"></script>
    </head>
    <body>
       <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
          <div class="container-fluid" id="bar">
-           <a class="navbar-brand" href="/accueil"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}" alt="logo"> </a>
-           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                 <a class="nav-link active" aria-current="page" href="/accueil">Accueil</a>
-               </li>
-               <li class="nav-item disabled">
-                 <a class="nav-link" href="#">Deposez votre annonce</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/apropos">A propos de nous</a>
-                </li>
-             </ul>
-             
-             <form class="d-flex" action="/recherche" role="search">
-               <input class="form-control me-2" type="search" name="Kword" placeholder="Recherche" aria-label="Search">
-               <button class="btn btn-outline-success" type="submit">Recherche</button>
-             </form>
-           </div>
-         </div>
-       </nav>
-
-       <div class="container-wrapper">
-        <div id="left">
-        </div>
-       <div class="container">
-        <h1 id="header1">Depot d'annonce</h1>
-         <form onsubmit="return validateForm();" id="myForm" action="/soumettre" method="post">
-        <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" id="floatingInputInvalid1" name="nom" placeholder="name@example.com" oninput="validateInput()">
-            <label for="floatingInputInvalid">Nom de l'animal</label>
-        </div>
-        <div class="mb-3 col-6">
-            <select class="form-select" name="age" id="age" aria-label="Default select example" onchange="validateAge()">
-                <option selected value="-1">Quelle age a votre animal</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-            </select>
-        </div>
-        <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" name="ville" id="floatingInputInvalidVille" placeholder="name@example.com" onchange="validateVille()">
-            <label for="floatingInputInvalid">La ville</label>
-        </div>
-
-        <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" name="adresse" id="floatingInputInvalid2" placeholder="name@example.com" onchange="validateAdresse()">
-            <label for="floatingInputInvalid">L'addresse civique</label>
-        </div>
-
-        <div class="form-floating mb-3 col-6">
-            <input type="text" class="form-control" name="codepostal" id="floatingInputInvalid3" placeholder="name@example.com" onchange="validateZipCode()" >
-            <label for="floatingInputInvalid">Code postal</label>
-        </div>
-
-        <div class="form-floating mb-3 col-6">
-            <input type="email" class="form-control" name="email" id="floatingInputInvalid4" placeholder="name@example.com" onchange="validateEmail()" >
-            <label for="floatingInputInvalid">Courriel</label>
-        </div>
-        <div class="form-floating mb-3 col-6">
-            <textarea class="form-control" id="Desc" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" oninput="validateDesc()"></textarea>
-            <label for="floatingTextarea2">Description</label>
-        </div>
-        <div class="form-floating mb-3 col-6" id="f1">
-            <select class="form-select" name="espece" id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value); validateEspece()">
-                <option selected value="-1">Choisissez une option</option>
-                <option value="Mouton" >Mouton</option>
-                <option value="Chien">Chien</option>
-                <option value="Serpent">Serpent</option>
-                <option value="Escargot">Escargot</option>
-                <option value="Kangourou">Kangourou</option>
-            </select>
-            <label for="floatingSelect">Espece</label>
-        </div>
-        
-        <div class="form-floating mb-3 col-6" id="f2" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect1" aria-label="Floating label select example" onchange="validateRace();">
-                <option selected value="-1">Choisissez une race</option>
-                <option value="Dorper">Dorper</option>
-            </select>
-            <label for="floatingSelect">Race</label>
-        </div>
-
-          <div class="form-floating mb-3 col-6" id="f3" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect2" aria-label="Floating label select example" onchange="validateRace();">
-                <option selected value="-1">Choisissez une race</option>
-                <option value="Chihuahua">Chihuahua</option>
-                <option value="Dalmatien">Dalmatien</option>
-                <option value="Pug">Pug</option>
-            </select>
-            <label for="floatingSelect">Race</label>
-          </div>
-          <div class="form-floating mb-3 col-6" id="f4" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect3" aria-label="Floating label select example" onchange="validateRace();">
-              <option selected value="-1">Choisissez une race</option>
-              <option value="Boa">Boa</option>
-            </select>
-            <label for="floatingSelect">Race</label>
-          </div>
-          <div class="form-floating mb-3 col-6" id="f5" style="display: none;">
-            <select class="form-select" name="race"  id="floatingSelect4" aria-label="Floating label select example" onchange="validateRace();">
-              <option selected value="-1">Choisissez une race</option>
-              <option value="Inconnu">Inconnu</option>
-
-            </select>
-            <label for="floatingSelect">Race</label>
-          </div>
-          <div class="form-floating mb-3 col-6" id="f6" style="display: none;">
-            <select class="form-select" name="race" id="floatingSelect5" aria-label="Floating label select example" onchange="validateRace();">
-              <option selected value="-1">Choisissez une race</option>
-              <option value="Inconnu">Inconnu</option>
-            </select>
-            <label for="floatingSelect">Race</label>
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-              <label class="form-check-label" for="invalidCheck">
-                Accepter les termes et conditions.
-              </label>
-              <div class="invalid-feedback is-invalid">
-                Il faut accepter les termes et conditions.
-              </div>
-              <div class="invalid-selection is-invalid">
-                Il faut choisir une espece et une race.
-              </div>
+            <a class="navbar-brand" href="/accueil"><img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}" alt="logo"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="/accueil">Accueil</a>
+                  </li>
+                  <li class="nav-item disabled">
+                     <a class="nav-link" href="#">Deposez votre annonce</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/apropos">A propos de nous</a>
+                  </li>
+               </ul>
+               <form class="d-flex" action="/recherche" role="search">
+                  <input class="form-control me-2" type="search" name="Kword" placeholder="Recherche" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Recherche</button>
+               </form>
             </div>
-          </div>
-          <div class="col-12" id="soumettre">
-            <button class="btn btn-primary" value="Soumettre" type="submit" onclick="validateForm(event)">Soumettre</button>
-          </div>
-        </form>
-    </div>
-</div>
-    
-<footer class="text-center text-white" style="background-color: #f1f1f1;">
-  <div class="container pt-4">
-    <section class="mb-4">
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i></a>
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="https://github.com/brainchemist2005"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i>
-      </a>
-    </section>
-  </div>
-
-  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    Zakariae BOUARGAN Jinane HATIM
-  </div>
-</footer>
+         </div>
+      </nav>
+      <div class="container-wrapper">
+         <div id="left">
+         </div>
+         <div class="container">
+            <h1 id="header1">Depot d'annonce</h1>
+            <form onsubmit="return validateForm();" id="myForm" action="/soumettre" method="post">
+               <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control" id="floatingInputInvalid1" name="nom" placeholder="name@example.com" oninput="validateInput()">
+                  <label for="floatingInputInvalid1">Nom de l'animal</label>
+               </div>
+               <div class="mb-3 col-6">
+                  <select class="form-select" name="age" id="age" aria-label="Default select example" onchange="validateAge()">
+                     <option selected value="-1">Quelle age a votre animal</option>
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                     <option value="9">9</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                     <option value="13">13</option>
+                     <option value="14">14</option>
+                     <option value="15">15</option>
+                     <option value="16">16</option>
+                     <option value="17">17</option>
+                     <option value="18">18</option>
+                     <option value="19">19</option>
+                     <option value="20">20</option>
+                     <option value="21">21</option>
+                     <option value="22">22</option>
+                     <option value="23">23</option>
+                     <option value="24">24</option>
+                     <option value="25">25</option>
+                     <option value="26">26</option>
+                     <option value="27">27</option>
+                     <option value="28">28</option>
+                     <option value="29">29</option>
+                     <option value="30">30</option>
+                  </select>
+               </div>
+               <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control" name="ville" id="floatingInputInvalidVille" placeholder="name@example.com" onchange="validateVille()">
+                  <label for="floatingInputInvalidVille">La ville</label>
+               </div>
+               <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control" name="adresse" id="floatingInputInvalid2" placeholder="name@example.com" onchange="validateAdresse()">
+                  <label for="floatingInputInvalid2">L'addresse civique</label>
+               </div>
+               <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control" name="codepostal" id="floatingInputInvalid3" placeholder="name@example.com" onchange="validateZipCode()" >
+                  <label for="floatingInputInvalid3">Code postal</label>
+               </div>
+               <div class="form-floating mb-3 col-6">
+                  <input type="email" class="form-control" name="email" id="floatingInputInvalid4" placeholder="name@example.com" onchange="validateEmail()" >
+                  <label for="floatingInputInvalid4">Courriel</label>
+               </div>
+               <div class="form-floating mb-3 col-6">
+                  <textarea class="form-control" id="Desc" name="description" placeholder="Leave a comment here" style="height: 100px" oninput="validateDesc()"></textarea>
+                  <label for="Desc">Description</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f1">
+                  <select class="form-select" name="espece" id="floatingSelect" aria-label="Floating label select example" onchange="especeFunction(this.value); validateEspece()">
+                     <option selected value="-1">Choisissez une option</option>
+                     <option value="Mouton" >Mouton</option>
+                     <option value="Chien">Chien</option>
+                     <option value="Serpent">Serpent</option>
+                     <option value="Escargot">Escargot</option>
+                     <option value="Kangourou">Kangourou</option>
+                  </select>
+                  <label for="floatingSelect">Espece</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f2" style="display: none;">
+                  <select class="form-select" name="race" id="floatingSelect1" aria-label="Floating label select example" onchange="validateRace();">
+                     <option selected value="-1">Choisissez une race</option>
+                     <option value="Dorper">Dorper</option>
+                  </select>
+                  <label for="floatingSelect1">Race</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f3" style="display: none;">
+                  <select class="form-select" name="race" id="floatingSelect2" aria-label="Floating label select example" onchange="validateRace();">
+                     <option selected value="-1">Choisissez une race</option>
+                     <option value="Chihuahua">Chihuahua</option>
+                     <option value="Dalmatien">Dalmatien</option>
+                     <option value="Pug">Pug</option>
+                  </select>
+                  <label for="floatingSelect2">Race</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f4" style="display: none;">
+                  <select class="form-select" name="race" id="floatingSelect3" aria-label="Floating label select example" onchange="validateRace();">
+                     <option selected value="-1">Choisissez une race</option>
+                     <option value="Boa">Boa</option>
+                  </select>
+                  <label for="floatingSelect3">Race</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f5" style="display: none;">
+                  <select class="form-select" name="race"  id="floatingSelect4" aria-label="Floating label select example" onchange="validateRace();">
+                     <option selected value="-1">Choisissez une race</option>
+                     <option value="Inconnu">Inconnu</option>
+                  </select>
+                  <label for="floatingSelect4">Race</label>
+               </div>
+               <div class="form-floating mb-3 col-6" id="f6" style="display: none;">
+                  <select class="form-select" name="race" id="floatingSelect5" aria-label="Floating label select example" onchange="validateRace();">
+                     <option selected value="-1">Choisissez une race</option>
+                     <option value="Inconnu">Inconnu</option>
+                  </select>
+                  <label for="floatingSelect5">Race</label>
+               </div>
+               <div class="col-12">
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
+                     <label class="form-check-label" for="invalidCheck">
+                     Accepter les termes et conditions.
+                     </label>
+                     <div class="invalid-feedback is-invalid">
+                        Il faut accepter les termes et conditions.
+                     </div>
+                     <div class="invalid-selection is-invalid">
+                        Il faut choisir une espece et une race.
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12" id="soumettre">
+                  <button class="btn btn-primary" value="Soumettre" type="submit" onclick="validateForm(event)">Soumettre</button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <footer class="text-center text-white" style="background-color: #f1f1f1;">
+         <div class="container pt-4">
+            <section class="mb-4">
+               <a
+                  class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-linkedin"></i></a>
+               <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+                  href="https://github.com/brainchemist2005"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-github"></i>
+               </a>
+            </section>
+         </div>
+         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            Zakariae BOUARGAN Jinane HATIM
+         </div>
+      </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
    </body>
 </html>
