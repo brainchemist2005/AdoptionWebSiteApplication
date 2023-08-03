@@ -1,121 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr-CA">
- <head>
-  <meta charset="utf-8">
-  <meta content="device-width, initial-scale=1.0" name="viewport">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <title>
-   Accueil
-  </title>
-  <link href="{{ url_for('static', filename='css/accueil.css') }}" rel="stylesheet" type="text/css">
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
- </head>
- <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar" style="background-color: #6f7070;">
-   <div class="container-fluid" id="bar">
-    <a class="navbar-brand" href="/accueil">
-     <img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}" alt="logo">
-    </a>
-    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
-     <span class="navbar-toggler-icon">
-     </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-       <a aria-current="page" class="nav-link active" href="/accueil">
-        Accueil
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="/adoption">
-        Deposez votre annonce
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="/apropos">
-        A propos de nous
-       </a>
-      </li>
-     </ul>
-     <form action="/recherche" class="d-flex" role="search">
-      <input aria-label="Search" class="form-control me-2" name="Kword" placeholder="Recherche" type="search">
-      <button class="btn btn-outline-success" type="submit">
-       Recherche
-      </button>
-     </form>
-    </div>
-   </div>
-  </nav>
-  <div id="base">
-   <h1>
-    Bienvenue dans notre centre d'adoption
-   </h1>
-   <div class="carousel slide" id="carouselExampleCaptions">
-    <div class="carousel-indicators">
-     {% for animal in animaux %}
-     <button %}="" aria-current="true" aria-label="Slide {{ loop.index }}" class="active" data-bs-slide-to="{{ loop.index0 }}" data-bs-target="#carouselExampleCaptions" endif="" if="" loop.first="" type="button" {%="">
-     </button>
-     {% endfor %}
-    </div>
-    <div class="carousel-inner">
-     {% for animal in animaux %}
-     <div class="carousel-item {% if loop.first %} active {% endif %}">
-      {% if animal.race == "Inconnu" %}
-      <img alt="{{ animal.nom }}" class="card-img-top" id="img_car" src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}">
-      {% else %}
-      <img alt="{{ animal.nom }}" class="card-img-top" id="img_car" src="{{ url_for('static', filename='Images/' + animal.race + '.jpeg') }}">
-      {% endif %}
-      <div class="carousel-caption d-none d-md-block">
-       <h5>
-        {{ animal.nom }}
-       </h5>
-       <p>
-        {{ animal.description }}
-       </p>
-       <a class="btn btn-light" href="/animal/{{animal.id}}">
-        En savoir plus
-       </a>
+   <head>
+      <meta charset="utf-8">
+      <meta content="device-width, initial-scale=1.0" name="viewport">
+      <meta content="IE=edge" http-equiv="X-UA-Compatible">
+      <title>
+         Accueil
+      </title>
+      <link href="{{ url_for('static', filename='css/accueil.css') }}" rel="stylesheet" type="text/css">
+      <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar" style="background-color: #6f7070;">
+         <div class="container-fluid" id="bar">
+            <a class="navbar-brand" href="/accueil">
+            <img id="logo" src="{{ url_for('static', filename='Images/Logo.PNG') }}" alt="logo">
+            </a>
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon">
+            </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a aria-current="page" class="nav-link active" href="/accueil">
+                     Accueil
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/adoption">
+                     Deposez votre annonce
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/apropos">
+                     A propos de nous
+                     </a>
+                  </li>
+               </ul>
+               <form action="/recherche" class="d-flex" role="search">
+                  <input aria-label="Search" class="form-control me-2" name="Kword" placeholder="Recherche" type="search">
+                  <button class="btn btn-outline-success" type="submit">
+                  Recherche
+                  </button>
+               </form>
+            </div>
+         </div>
+      </nav>
+      <div id="base">
+         <h1>
+            Bienvenue dans notre centre d'adoption
+         </h1>
+         <div class="carousel slide" id="carouselExampleCaptions">
+            <div class="carousel-indicators">
+               {% for animal in animaux %}
+               <button aria-current="true" aria-label="Slide {{ loop.index }}" class="active" data-bs-slide-to="{{ loop.index0 }}" data-bs-target="#carouselExampleCaptions" type="button" {% if loop.first %} active {% endif %}>
+               </button>
+               {% endfor %}
+            </div>
+            <div class="carousel-inner">
+               {% for animal in animaux %}
+               <div class="carousel-item {% if loop.first %} active {% endif %}">
+                  {% if animal.race == "Inconnu" %}
+                  <img alt="{{ animal.nom }}" class="card-img-top" id="img_car" src="{{ url_for('static', filename='Images/' + animal.espece + '.jpeg') }}">
+                  {% else %}
+                  <img alt="{{ animal.nom }}" class="card-img-top" id="img_car" src="{{ url_for('static', filename='Images/' + animal.race + '.jpeg') }}">
+                  {% endif %}
+                  <div class="carousel-caption d-none d-md-block">
+                     <h5>
+                        {{ animal.nom }}
+                     </h5>
+                     <p>
+                        {{ animal.description }}
+                     </p>
+                     <a class="btn btn-light" href="/animal/{{animal.id}}">
+                     En savoir plus
+                     </a>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleCaptions" type="button">
+            <span aria-hidden="true" class="carousel-control-prev-icon">
+            </span>
+            <span class="visually-hidden">
+            Previous
+            </span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleCaptions" type="button">
+            <span aria-hidden="true" class="carousel-control-next-icon">
+            </span>
+            <span class="visually-hidden">
+            Next
+            </span>
+            </button>
+         </div>
       </div>
-     </div>
-     {% endfor %}
-    </div>
-    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleCaptions" type="button">
-     <span aria-hidden="true" class="carousel-control-prev-icon">
-     </span>
-     <span class="visually-hidden">
-      Previous
-     </span>
-    </button>
-    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleCaptions" type="button">
-     <span aria-hidden="true" class="carousel-control-next-icon">
-     </span>
-     <span class="visually-hidden">
-      Next
-     </span>
-    </button>
-   </div>
-  </div>
-  <footer class="text-center text-white" style="background-color: #f1f1f1;">
-   <div class="container pt-4">
-    <section class="mb-4">
-     <a class="btn btn-link btn-floating btn-lg text-dark m-1" data-mdb-ripple-color="dark" href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/" role="button">
-      <i class="fab fa-linkedin">
-      </i>
-     </a>
-     <a class="btn btn-link btn-floating btn-lg text-dark m-1" data-mdb-ripple-color="dark" href="https://github.com/brainchemist2005" role="button">
-      <i class="fab fa-github">
-      </i>
-     </a>
-    </section>
-   </div>
-   <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    Zakariae BOUARGAN Jinane HATIM
-   </div>
-  </footer>
-  <script crossorigin="anonymous" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
-  </script>
- </body>
+      <footer class="text-center text-white" style="background-color: #f1f1f1;">
+         <div class="container pt-4">
+            <section class="mb-4">
+               <a class="btn btn-link btn-floating btn-lg text-dark m-1" data-mdb-ripple-color="dark" href="https://www.linkedin.com/in/zakariae-bouargan-18757622a/" role="button">
+               <i class="fab fa-linkedin">
+               </i>
+               </a>
+               <a class="btn btn-link btn-floating btn-lg text-dark m-1" data-mdb-ripple-color="dark" href="https://github.com/brainchemist2005" role="button">
+               <i class="fab fa-github">
+               </i>
+               </a>
+            </section>
+         </div>
+         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            Zakariae BOUARGAN Jinane HATIM
+         </div>
+      </footer>
+      <script crossorigin="anonymous" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+   </body>
 </html>
